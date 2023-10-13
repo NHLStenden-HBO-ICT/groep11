@@ -1,0 +1,5 @@
+# All WPF meta files
+.vs
+GameSportschoolKees/obj
+
+# Some other files that need to be ignored

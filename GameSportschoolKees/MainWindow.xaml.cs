@@ -23,6 +23,7 @@ namespace GameSportschoolKees
         public MainWindow()
         {
             InitializeComponent();
+            //test
         }
     }
 }

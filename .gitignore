@@ -1,0 +1,6 @@
+# All WPF meta files
+.vs
+obj
+bin
+
+# Some other files that need to be ignored

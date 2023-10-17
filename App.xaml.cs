@@ -11,7 +11,7 @@ namespace GameSportschoolKees
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    /// test
+    /// /// test 2
     public partial class App : Application
     {
     }

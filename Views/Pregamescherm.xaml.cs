@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game_Interaction.Views
+namespace GameSportschoolKees.Views
 {
     /// <summary>
-    /// Interaction logic for Pre_gamescherm.xaml
+    /// Interaction logic for Pregamescherm.xaml
     /// </summary>
-    public partial class Pre_gamescherm : Window
+    public partial class Pregamescherm : Window
     {
-        public Pre_gamescherm()
+        public Pregamescherm()
         {
             InitializeComponent();
         }

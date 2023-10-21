@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using Game_Interaction;
 
 namespace GameSportschoolKees.Views
 {
@@ -40,35 +41,52 @@ namespace GameSportschoolKees.Views
             string leeftijdSpeler2 = LeeftijdSpeler2.Text;
             string postcodeSpeler2 = PostcodeSpeler2.Text;
 
-            // Controleer de waarden voor Speler 1 (dit is slechts een voorbeeld)
+            // Controleer of naam en e-mail speler 1 (correct) is ingevuld
+            
+            // Naam speler 1
             if (string.IsNullOrEmpty(naamSpeler1))
             {
                 MessageBox.Show("Voer a.u.b. een naam in voor Speler 1.");
                 return;
             }
-
+            
+            // email speler 1
             if (string.IsNullOrEmpty(emailSpeler1))
             {
                 MessageBox.Show("Voer a.u.b. een e-mailadres in voor Speler 1.");
                 return;
+
+            }
+            else if (!Validations.IsEmailValid(emailSpeler1))
+            {
+                MessageBox.Show("Voer a.u.b. een geldig e-mail in voor Speler 1.");
+                return;
             }
 
-            // Voeg hier eventuele verdere validatie toe voor de andere TextBoxes van Speler 1...
 
-            // Controleer de waarden voor Speler 2 (dit is slechts een voorbeeld)
+            // Controleer of naam en e-mail speler 2 (correct) is ingevuld
+            
+            // Naam speler 2
             if (string.IsNullOrEmpty(naamSpeler2))
             {
                 MessageBox.Show("Voer a.u.b. een naam in voor Speler 2.");
                 return;
             }
 
+            // E-mail speler 2
             if (string.IsNullOrEmpty(emailSpeler2))
             {
                 MessageBox.Show("Voer a.u.b. een e-mailadres in voor Speler 2.");
                 return;
             }
+            else if (!Validations.IsEmailValid(emailSpeler2))
+            {
+                MessageBox.Show("Voer a.u.b. een geldig e-mail in voor Speler 2.");
+                return;
+            }
 
-            // Voeg hier eventuele verdere validatie toe voor de andere TextBoxes van Speler 2...
+
+
         }
     }
 }

@@ -15,7 +15,7 @@
         <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Click="Button_Click" Width="25" Height="20"/>
         <Label Content="Terug" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Center" Height="28" Width="39"/>
         <!--Text voor duidelijkheid wat de knop doet-->
-        <Label Content="Besturingen tijdens het spel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Height="42" Grid.Row="1" Width="304"/>
+        <Label Content="Besturingen tijdens het spel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Height="42" Grid.Row="1" Width="304" FontFamily="Script MT Bold"/>
         <!--Text(besturing tijdens het spel)-->
     </Grid>
 </Window>

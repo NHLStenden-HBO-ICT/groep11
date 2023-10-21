@@ -7,15 +7,8 @@
         mc:Ignorable="d"
         Title="Besturingscherm" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="25*"/>
-        </Grid.RowDefinitions>
-        <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Click="Button_Click" Width="25" Height="20"/>
-        <Label Content="Terug" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Center" Height="28" Width="39"/>
+        <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Width="25" Height="20" Background="White" BorderBrush="Black"/>
+        <Label Content="Terug" HorizontalAlignment="Left" Margin="35,7,0,0" VerticalAlignment="Top"/>
         <!--Text voor duidelijkheid wat de knop doet-->
-        <Label Content="Besturingen tijdens het spel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Height="42" Grid.Row="1" Width="304" FontFamily="Script MT Bold"/>
-        <!--Text(besturing tijdens het spel)-->
     </Grid>
 </Window>

@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Font\Squada_One\SquadaOne-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Font\Squada_One\SquadaOne-Regular.ttf" />
+  </ItemGroup>
+
 </Project>

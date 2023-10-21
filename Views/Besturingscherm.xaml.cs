@@ -24,9 +24,9 @@ namespace Game_Interaction.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TerugNaarHoofdmenu(object sender, RoutedEventArgs e) //button om terug te gaan naar het hoofdmenu
         {
-
+            Close();
         }
     }
 }

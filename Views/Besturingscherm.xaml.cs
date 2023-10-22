@@ -28,5 +28,13 @@ namespace Game_Interaction.Views
         {
             Close();
         }
+        private void KeyIsEsc(object sender, KeyEventArgs e)
+        {
+            switch (e.Key) 
+            {
+                //Esc knop sluit window af
+                case Key.Escape: Close(); break;
+            }
+        }
     }
 }

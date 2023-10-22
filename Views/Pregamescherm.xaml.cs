@@ -30,18 +30,18 @@ namespace GameSportschoolKees.Views
         private void StartKnop_Click(object sender, RoutedEventArgs e)
         {
             // Haal de waarden uit de TextBoxes voor Speler 1
-            string naamSpeler1 = NaamSpeler1.Text;
-            string emailSpeler1 = E_mailSpeler1.Text;
-            string leeftijdSpeler1 = LeeftijdSpeler1.Text;
-            string postcodeSpeler1 = PostcodeSpeler1.Text;
+            string naamSpeler1 = NaamSpeler1.Text.Trim();
+            string emailSpeler1 = E_mailSpeler1.Text.Trim();
+            string leeftijdSpeler1 = LeeftijdSpeler1.Text.Trim();
+            string postcodeSpeler1 = PostcodeSpeler1.Text.Trim();
 
             // Haal de waarden uit de TextBoxes voor Speler 2
-            string naamSpeler2 = NaamSpeler2.Text;
-            string emailSpeler2 = E_mailSpeler2.Text;
-            string leeftijdSpeler2 = LeeftijdSpeler2.Text;
-            string postcodeSpeler2 = PostcodeSpeler2.Text;
+            string naamSpeler2 = NaamSpeler2.Text.Trim();
+            string emailSpeler2 = E_mailSpeler2.Text.Trim();
+            string leeftijdSpeler2 = LeeftijdSpeler2.Text.Trim();
+            string postcodeSpeler2 = PostcodeSpeler2.Text.Trim();
 
-            // Controleer of naam en e-mail speler 1 (correct) is ingevuld
+            // Controleer of gegevens speler 1 (correct) zijn ingevuld
             
             // Naam speler 1
             if (string.IsNullOrEmpty(naamSpeler1))
@@ -59,12 +59,22 @@ namespace GameSportschoolKees.Views
             }
             else if (!Validations.IsEmailValid(emailSpeler1))
             {
-                MessageBox.Show("Voer a.u.b. een geldig e-mail in voor Speler 1.");
+                MessageBox.Show("Voer a.u.b. een geldig e-mailadres in voor Speler 1.");
                 return;
             }
 
+            // Check of postcode is ingevuld, als dit zo is checken of het een geldige postcode is
+            if (!string.IsNullOrEmpty(postcodeSpeler1))
+            {
+                if (!Validations.IsNederlandsePostcode(postcodeSpeler1))
+                {
+                    MessageBox.Show("Voer a.u.b. een geldige Nederlandse postcode in voor speler 1.");
+                    return;
+                }
+            }
 
-            // Controleer of naam en e-mail speler 2 (correct) is ingevuld
+
+            // Controleer of gegevens speler 2 (correct) zijn ingevuld
             
             // Naam speler 2
             if (string.IsNullOrEmpty(naamSpeler2))
@@ -81,9 +91,24 @@ namespace GameSportschoolKees.Views
             }
             else if (!Validations.IsEmailValid(emailSpeler2))
             {
-                MessageBox.Show("Voer a.u.b. een geldig e-mail in voor Speler 2.");
+                MessageBox.Show("Voer a.u.b. een geldig e-mailadres in voor Speler 2.");
                 return;
             }
+
+            // Check of postcode is ingevuld, als dit zo is checken of het een geldige postcode is
+            if (!string.IsNullOrEmpty(postcodeSpeler2))
+            {
+                if (!Validations.IsNederlandsePostcode(postcodeSpeler2))
+                {
+                    MessageBox.Show("Voer a.u.b. een geldige Nederlandse postcode in voor speler 1.");
+                    return;
+                }
+            }
+
+            // Als alles klopt, voeg de ingevulde waarden toe aan CSV file
+            // Als de ingevulde waarden al in de csv file bestaan, niet toevoegen
+            string path = @"Data\Player_info.csv";
+
 
 
 

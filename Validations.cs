@@ -11,10 +11,18 @@ namespace Game_Interaction
     {
         public static bool IsEmailValid(string email)
         {
-            // Uitgebreidere regex patroon om een e-mailadres te valideren
+            // Regex patroon om een e-mailadres te valideren
             string pattern = @"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+$";
 
             return Regex.IsMatch(email, pattern);
+        }
+
+        public static bool IsNederlandsePostcode(string postcode)
+        {
+            // Regex patroon voor Nederlandse postcodes
+            string pattern = @"^\d{4}\s?[A-Za-z]{2}$";
+           
+            return Regex.IsMatch(postcode, pattern);
         }
     }
 }

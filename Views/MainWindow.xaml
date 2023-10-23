@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-
+        <Button x:Name="Bestruring" Content="Besturingscherm" Click="Bestruring_Click"/>
     </Grid>
 </Window>

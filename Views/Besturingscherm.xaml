@@ -7,8 +7,17 @@
         mc:Ignorable="d"
         Title="Besturingscherm" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Width="25" Height="20" Background="White" BorderBrush="Black"/>
-        <Label Content="Terug" HorizontalAlignment="Left" Margin="35,7,0,0" VerticalAlignment="Top"/>
+      
+        <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill"/>  
+        <!--Achtergrond-->
+        <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TerugNaarHoofdmenu" Width="30" Height="25" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/> 
+        <!--Esc knop-->
+        <Label Content="Terug" HorizontalAlignment="Left" Margin="40,9,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="16" RenderTransformOrigin="0.806,0.577"/>
         <!--Text voor duidelijkheid wat de knop doet-->
+        <Label Content="Besturing voor tijdens het spel" FontFamily="Squada one" FontSize="36"/>
+        <!--Hoofdtext-->
+
+
+
     </Grid>
 </Window>

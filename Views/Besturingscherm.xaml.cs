@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameSportschoolKees.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class Besturingscherm : Window
     {
-        public Besturingscherm()
+        MainWindow main;
+        public Besturingscherm(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
         }
 
         private void TerugNaarHoofdmenu(object sender, RoutedEventArgs e) //button om terug te gaan naar het hoofdmenu

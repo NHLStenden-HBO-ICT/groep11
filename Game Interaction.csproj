@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Font\Squada_One\SquadaOne-Regular.ttf" />
+    <None Remove="Image\BestruringEind.PNG" />
+    <None Remove="Image\Bs.PNG" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Font\Squada_One\SquadaOne-Regular.ttf" />
+    <Resource Include="Image\BestruringEind.PNG" />
+    <Resource Include="Image\Bs.PNG" />
   </ItemGroup>
 
 </Project>

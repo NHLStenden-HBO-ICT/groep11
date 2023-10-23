@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game_Interaction.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace GameSportschoolKees.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Bestruring_Click(object sender, RoutedEventArgs e)
+        {
+            Besturingscherm bs = new Besturingscherm(this);
+            bs.Visibility = Visibility.Visible;  
         }
     }
 }

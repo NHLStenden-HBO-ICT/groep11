@@ -20,7 +20,7 @@ namespace Game_Interaction
         public int Wins { get; set; }
     
 
-        public List<Speler> LeesSpelersUitCSV(string filePath)
+        public static List<Speler> LeesSpelersUitCSV(string filePath)
         {
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -29,7 +29,7 @@ namespace Game_Interaction
             }
         }
 
-        public void SchrijfSpelersNaarCSV(List<Speler> spelers, string filePath)
+        public static void SchrijfSpelersNaarCSV(List<Speler> spelers, string filePath)
         {
             using (var writer = new StreamWriter(filePath))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
@@ -38,6 +38,10 @@ namespace Game_Interaction
             }
         }
 
+        public void SpelerGewonnen()
+        {
+            this.Wins++;
+        }
 
 
     }

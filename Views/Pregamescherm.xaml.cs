@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using Game_Interaction;
+using System.Windows.Markup;
 
 namespace GameSportschoolKees.Views
 {
@@ -107,8 +108,70 @@ namespace GameSportschoolKees.Views
 
             // Als alles klopt, voeg de ingevulde waarden toe aan CSV file
             // Als de ingevulde waarden al in de csv file bestaan, niet toevoegen
-            string path = @"Data\Player_info.csv";
+            
+            string path = @"..\..\..\Data\Player_info.csv";
+            
+            // Instance van Speler aanmaken om uit CSV bestand te kunnen lezen en in de list te zetten.
+            List<Speler> spelersUitCV = Speler.LeesSpelersUitCSV(path);
+            Speler speler1 = null;
+            Speler speler2 = null;
 
+            // Loop door alle spelers die in het bestand staan
+            // Als er een speler bestaat met de ingevulde naam en email combinatie wordt variabele 'speler1' gevuld met deze info
+            foreach (Speler speler in spelersUitCV)
+
+            {
+                if (speler.Naam == naamSpeler1 && speler.Email == emailSpeler1)
+                {
+                    speler1 = speler;
+                    break;
+                }
+            }
+
+            // Als na de loop speler1 nog steeds null is (er is dus geen speler met deze naam en email combinatie) nieuwe speler aanmaken
+            // en deze toevoegen aan CSV file
+            if (speler1 == null) 
+            {
+                speler1 = new Speler
+                {
+                    Naam = naamSpeler1,
+                    Email = emailSpeler1,
+                    Postcode = postcodeSpeler1,
+                    Leeftijd = int.Parse(leeftijdSpeler1),
+                    Wins = 0
+                };
+                spelersUitCV.Add(speler1);
+            }
+
+            // Loop door alle spelers die in het bestand staan (nu voor speler 2)
+            // Als er een speler bestaat met de ingevulde naam en email combinatie wordt variabele 'speler1' gevuld met deze info
+            foreach (Speler speler in spelersUitCV)
+
+            {
+                if (speler.Naam == naamSpeler1 && speler.Email == emailSpeler1)
+                {
+                    speler2 = speler;
+                    break;
+                }
+            }
+
+            // Als na de loop speler1 nog steeds null is (er is dus geen speler met deze naam en email combinatie) nieuwe speler aanmaken
+            // en deze toevoegen aan CSV file
+            if (speler2 == null)
+            {
+                speler2 = new Speler
+                {
+                    Naam = naamSpeler1,
+                    Email = emailSpeler1,
+                    Postcode = postcodeSpeler1,
+                    Leeftijd = int.Parse(leeftijdSpeler1),
+                    Wins = 0
+                };
+                spelersUitCV.Add(speler2);
+            }
+
+            // Bijgewerkte lijst terugschrijven naar CSV
+            Speler.SchrijfSpelersNaarCSV(spelersUitCV, path);
 
 
 

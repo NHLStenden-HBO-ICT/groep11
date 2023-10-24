@@ -10,7 +10,7 @@
         WindowStyle="SingleBorderWindow"
         Title="Pregamescherm" Height="1080" Width="1920">
     <Window.Background>
-            <ImageBrush ImageSource="C:\Users\Game PC\source\repos\groep11\Images\Background.png"/>
+            <ImageBrush ImageSource="pack://application:,,,/Images/Background.png"/>
         </Window.Background>
     
     
@@ -73,9 +73,9 @@
                     <StackPanel>
                         <Label HorizontalAlignment="Center" FontFamily="Squada one" FontSize="20">Gegevens speler 1</Label>
                         <Label FontFamily="Squada one" FontSize="20">Naam (verplicht):</Label>
-                        <TextBox x:Name="NaamSpeler1" Margin="2,0,2,5" BorderBrush="black"></TextBox>
+                        <TextBox x:Name="NaamSpeler1" Margin="2,0,2,5" BorderBrush="black">sander vd werff</TextBox>
                         <Label FontFamily="Squada one" FontSize="20">E-mail (verplicht):</Label>
-                        <TextBox x:Name="E_mailSpeler1" Margin="2,0,2,5" BorderBrush="black"></TextBox>
+                        <TextBox x:Name="E_mailSpeler1" Margin="2,0,2,5" BorderBrush="black">sander-werff1@hotmail.com</TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Leeftijd:</Label>
                         <TextBox x:Name="LeeftijdSpeler1" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Postcode:</Label>
@@ -92,9 +92,9 @@
                     <StackPanel>
                         <Label HorizontalAlignment="Center" FontFamily="Squada one" FontSize="20">Gegevens speler 2</Label>
                         <Label FontFamily="Squada one" FontSize="20">Naam (verplicht):</Label>
-                        <TextBox x:Name="NaamSpeler2" Margin="2,0,2,5" BorderBrush="black"></TextBox>
+                        <TextBox x:Name="NaamSpeler2" Margin="2,0,2,5" BorderBrush="black">sander</TextBox>
                         <Label FontFamily="Squada one" FontSize="20">E-mail (verplicht):</Label>
-                        <TextBox x:Name="E_mailSpeler2" Margin="2,0,2,5" BorderBrush="black"></TextBox>
+                        <TextBox x:Name="E_mailSpeler2" Margin="2,0,2,5" BorderBrush="black">sander-werff@hotmail.com</TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Leeftijd:</Label>
                         <TextBox x:Name="LeeftijdSpeler2" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Postcode:</Label>

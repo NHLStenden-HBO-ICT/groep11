@@ -25,18 +25,19 @@ namespace Game_Interaction.Views
         {
             InitializeComponent();
             this.main = main;
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
         private void TerugNaarHoofdmenu(object sender, RoutedEventArgs e) //button om terug te gaan naar het hoofdmenu
         {
             Close();
         }
-        private void KeyIsEsc(object sender, KeyEventArgs e)
+        private void HandleEsc(object sender, KeyEventArgs e) //Esc toets sluit besturingscherm af
         {
-            switch (e.Key) 
+            if (e.Key == Key.Escape) 
             {
-                //Esc knop sluit window af
-                case Key.Escape: Close(); break;
+                Close();
+                main.Visibility = Visibility.Visible;
             }
         }
     }

@@ -12,12 +12,13 @@
         <!--Achtergrond-->
         <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TerugNaarHoofdmenu" Width="30" Height="25" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/>
         <!--Esc knop-->
-        <Label Content="Terug" HorizontalAlignment="Left" Margin="40,9,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="16" RenderTransformOrigin="0.806,0.577"/>
+        <Label Content="Terug" HorizontalAlignment="Left" Margin="40,9,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="16"/>
         <!--Text voor duidelijkheid wat de knop doet-->
         <Label Content="Besturing voor tijdens" FontFamily="Squada one" FontSize="36" Margin="0,22,0,360" HorizontalAlignment="Center"/>
         <Label Content="het spel" FontFamily="Squada one" FontSize="36" HorizontalAlignment="Center" Margin="0,65,0,323"/>
         <!--Hoofdtext-->
-        <Button Content="Esc" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top" Width="30" Height="25" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/>
-        <Label Content="Om het spel te pauzeren" FontFamily="Squada one"/>
+        <Button Content="Esc" HorizontalAlignment="Left" Margin="293,342,0,0" VerticalAlignment="Top" Width="30" Height="25" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/>
+        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" Margin="328,340,288,64" FontSize="16"/>
+        <!--Uitleg hoe het spel gepauzeerd kan worden-->
     </Grid>
 </Window>

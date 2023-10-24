@@ -29,7 +29,12 @@ namespace GameSportschoolKees.Views
         private void Bestruring_Click(object sender, RoutedEventArgs e)
         {
             Besturingscherm bs = new Besturingscherm(this);
-            bs.Visibility = Visibility.Visible;  
+            bs.Visibility = Visibility.Visible;
+            this.Visibility = Visibility.Hidden;
+        }
+        public void QuitButton(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

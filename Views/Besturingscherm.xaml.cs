@@ -31,6 +31,7 @@ namespace Game_Interaction.Views
         private void TerugNaarHoofdmenu(object sender, RoutedEventArgs e) //button om terug te gaan naar het hoofdmenu
         {
             Close();
+            main.Visibility = Visibility.Visible;
         }
         private void HandleEsc(object sender, KeyEventArgs e) //Esc toets sluit besturingscherm af
         {

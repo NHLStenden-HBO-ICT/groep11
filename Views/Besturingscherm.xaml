@@ -14,11 +14,11 @@
         <!--Esc knop-->
         <Label Content="Terug" HorizontalAlignment="Left" Margin="40,9,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="16"/>
         <!--Text voor duidelijkheid wat de knop doet-->
-        <Label Content="Besturing voor tijdens" FontFamily="Squada one" FontSize="36" Margin="0,22,0,360" HorizontalAlignment="Center"/>
-        <Label Content="het spel" FontFamily="Squada one" FontSize="36" HorizontalAlignment="Center" Margin="0,65,0,323"/>
+        <Label Content="Besturing voor tijdens &#xD;&#xA;             het spel" FontFamily="Squada one" FontSize="36" Margin="0,22,0,291" HorizontalAlignment="Center"/>
+
         <!--Hoofdtext-->
         <Button Content="Esc" HorizontalAlignment="Left" Margin="293,342,0,0" VerticalAlignment="Top" Width="30" Height="25" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/>
-        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" Margin="328,340,288,64" FontSize="16"/>
+        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="328,341,299,0" FontSize="16" Height="57"/>
         <!--Uitleg hoe het spel gepauzeerd kan worden-->
     </Grid>
 </Window>

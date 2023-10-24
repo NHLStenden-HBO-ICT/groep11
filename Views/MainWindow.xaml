@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        <Button x:Name="Bestruring" Content="Besturingscherm" Click="Bestruring_Click"/>
+        <Button x:Name="Bestruring" Content="Besturingscherm" Click="Bestruring_Click" Margin="10,178,1051,262"/>
+        <Button x:Name="Quit" Click="QuitButton" Content="Quit" Margin="1154,206,334,345"/>
     </Grid>
 </Window>

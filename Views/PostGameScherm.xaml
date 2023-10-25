@@ -5,13 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
-        Title="PostGameScherm" Height="450" Width="800">
+        Title="PostGameScherm"
+        WindowState = "Maximized"
+        WindowStyle="None">
     <Grid>
-        <Image Source="/Image/Achtergrond.png" Stretch="Fill"/>
+        <Image Source="/Image/Achtergrond.png" Stretch="Fill" VerticalAlignment="Center"/>
         <!--De achtergrond-->
-        <Image Source="/Image/LogoSportschool.png" Stretch="Fill" Margin="252,10,252,330"/>
+        <Label Background="#FF586C70" Margin="702,15,702,793" BorderBrush="Black" BorderThickness="1"/>
+        <Image Source="/Image/Gymwars.png" Stretch="Fill" HorizontalAlignment="Center" Margin="0,25,0,803" Width="270"/>
+        <!--Logo van de game-->
+        <Image Source="/Image/LogoSportschool.png" Stretch="Fill" Margin="630,860,640,30"/>
         <!--Logo van de sportschool-->
-        <Button Content="Herstarten" Margin="191,238,376,146" Background="White" BorderBrush="Black"/>
-        <Button Content="Leaderbord" Margin="448,238,108,146"/>
+        <Label Background="#FF6D92AC" HorizontalAlignment="Center" Margin="0,278,0,204" Width="940" BorderBrush="Black" BorderThickness="2"/>
+        <!--Blok om de knoppen en speler die gewonnen heeft-->
+        <Button Content="Herstarten" Margin="473,501,915,427" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="HerstartKnop"/>
+        <Button Content="Leaderbord" Margin="915,501,473,427" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="LeaderbordKnop"/>
+        <Button Content="Hoofdmenu" Margin="473,639,915,289" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="HoofdmenuKnop"/>
+        <Button Content="Afsluiten" Margin="915,639,473,289" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="AfsluitenKnop"/>
+        <!--Alle buttons-->
+        <Label x:Name="SpelerWin" Content="[spelerNaamWin] heeft gewonnen!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,304,0,0"  FontFamily="Squada one" FontSize="40" Background="#FF586C70" Foreground="White" BorderBrush="Black" BorderThickness="1" Width="846" Height="71"/>
+        <!--Speler die gewonnen heeft komt hier te staan-->
     </Grid>
 </Window>

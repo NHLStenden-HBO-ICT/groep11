@@ -26,15 +26,22 @@ namespace GameSportschoolKees.Views
             InitializeComponent();
         }
 
-        private void Bestruring_Click(object sender, RoutedEventArgs e)
+        private void Bestruring_Click(object sender, RoutedEventArgs e) //Button om naar het besturing scherm te gaan
         {
             Besturingscherm bs = new Besturingscherm(this);
             bs.Visibility = Visibility.Visible;
             this.Visibility = Visibility.Hidden;
         }
-        public void QuitButton(object sender, RoutedEventArgs e)
+        public void QuitButton(object sender, RoutedEventArgs e) //Quit button sluit alle windows af
         {
             Application.Current.Shutdown();
+        }
+
+        private void PostGameClick(object sender, RoutedEventArgs e) //Button om naar post game scherm te gaan
+        {
+            PostGameScherm pgs = new PostGameScherm(this);
+            pgs.Visibility = Visibility.Visible;
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameSportschoolKees.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,34 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class PostGameScherm : Window
     {
-        public PostGameScherm()
+        MainWindow main;
+        public PostGameScherm(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
+        }
+
+        private void HerstartKnop(object sender, RoutedEventArgs e) //Button om de game te herstarten
+        {
+            Close();
+            main.Visibility = Visibility.Visible;
+        }
+
+        private void LeaderbordKnop(object sender, RoutedEventArgs e) //Button om naar de leaderbord te gaan
+        {
+            Close();
+            main.Visibility = Visibility.Visible; 
+        }
+
+        private void HoofdmenuKnop(object sender, RoutedEventArgs e) //Button om terug te gaan naar het hoofdmenu
+        {
+            Close();
+            main.Visibility = Visibility.Visible;
+        }
+
+        private void AfsluitenKnop(object sender, RoutedEventArgs e) //Button om alle windows af te sluiten
+        {
+            Application.Current.Shutdown();
         }
     }
 }

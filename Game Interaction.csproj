@@ -12,11 +12,14 @@
     <None Remove="Image\Achtergrond.png" />
     <None Remove="Image\BestruringEind.PNG" />
     <None Remove="Image\Bs.PNG" />
+    <None Remove="Image\Gymwars.jpg" />
+    <None Remove="Image\Gymwars.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Image\Achtergrond.png" />
     <Resource Include="Image\Bs.PNG" />
+    <Resource Include="Image\Gymwars.png" />
   </ItemGroup>
 
 </Project>

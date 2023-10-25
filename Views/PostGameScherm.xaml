@@ -1,0 +1,17 @@
+﻿<Window x:Class="Game_Interaction.Views.PostGameScherm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Game_Interaction.Views"
+        mc:Ignorable="d"
+        Title="PostGameScherm" Height="450" Width="800">
+    <Grid>
+        <Image Source="/Image/Achtergrond.png" Stretch="Fill"/>
+        <!--De achtergrond-->
+        <Image Source="/Image/LogoSportschool.png" Stretch="Fill" Margin="252,10,252,330"/>
+        <!--Logo van de sportschool-->
+        <Button Content="Herstarten" Margin="191,238,376,146" Background="White" BorderBrush="Black"/>
+        <Button Content="Leaderbord" Margin="448,238,108,146"/>
+    </Grid>
+</Window>

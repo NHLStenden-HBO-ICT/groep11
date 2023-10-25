@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
-        Title="Besturingscherm" Height="450" Width="800">
+        Title="Besturingscherm"
+        WindowState = "Maximized"
+        WindowStyle="None">
     <Grid>
 
         <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill"/>
@@ -15,10 +17,9 @@
         <Label Content="Terug" HorizontalAlignment="Left" Margin="40,9,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="16"/>
         <!--Text voor duidelijkheid wat de knop doet-->
         <Label Content="Besturing voor tijdens &#xD;&#xA;             het spel" FontFamily="Squada one" FontSize="36" Margin="0,22,0,291" HorizontalAlignment="Center"/>
-
         <!--Hoofdtext-->
-        <Button Content="Esc" HorizontalAlignment="Left" Margin="293,342,0,0" VerticalAlignment="Top" Width="30" Height="25" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/>
-        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="328,341,299,0" FontSize="16" Height="57"/>
+        <Button Content="Esc" HorizontalAlignment="Left" Margin="368,383,0,0" VerticalAlignment="Top" Width="30" Height="24" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="16"/>
+        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="398,380,0,0" FontSize="16" Height="27" HorizontalAlignment="Left"/>
         <!--Uitleg hoe het spel gepauzeerd kan worden-->
     </Grid>
 </Window>

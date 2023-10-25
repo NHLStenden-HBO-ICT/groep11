@@ -9,12 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\Achtergrond.png" />
     <None Remove="Image\BestruringEind.PNG" />
     <None Remove="Image\Bs.PNG" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\BestruringEind.PNG" />
+    <Resource Include="Image\Achtergrond.png" />
     <Resource Include="Image\Bs.PNG" />
   </ItemGroup>
 

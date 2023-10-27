@@ -22,6 +22,7 @@ namespace Game_Interaction.Views
         public Postgamescherm(string winnerName)
         {
             InitializeComponent();
+            showWinner.Content = $"{winnerName} heeft gewonnen!";
         
         }
     }

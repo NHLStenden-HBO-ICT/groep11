@@ -25,19 +25,20 @@ namespace Game_Interaction.Views
         private DispatcherTimer gameTimer = new DispatcherTimer();
         private ImageBrush playerBrush = new ImageBrush();
         private List<Rectangle> bulletsToRemove = new List<Rectangle>();
+        private bool gameIsOver = false;
 
         // Player1 Stats
         private int movementSpeedPlayer1 = 10;
         private int bulletSpeedPlayer1 = 20;
         private int ticksBetweenShotsPlayer1 = 30;
-        private int damagePlayer1 = 1;
+        private int damagePlayer1 = 50;
         private int hitpointsPlayer1 = 500;
 
         // Player2 Stats
         private int movementSpeedPlayer2 = 10;
         private int bulletSpeedPlayer2 = 20;
         private int ticksBetweenShotsPlayer2 = 30;
-        private int damagePlayer2 = 1;
+        private int damagePlayer2 = 50;
         private int hitpointsPlayer2 = 500;
 
         // Logica om ticksBetweenShots te laten werken
@@ -105,11 +106,11 @@ namespace Game_Interaction.Views
             // Checken of een speler dood is 
             if (hitpointsPlayer1 <= 0)
             {
-                EndGame("Player 1");
+                EndGame("Player 2");
             }
             if (hitpointsPlayer2 <= 0)
             {
-                EndGame("Player 2");
+                EndGame("Player 1");
             }
 
 
@@ -249,14 +250,18 @@ namespace Game_Interaction.Views
             gameCanvas.Children.Add(newProjectile);
         }
 
-
+        
         public void EndGame(string winnerName)
         {
-
+            if (!gameIsOver)
+            {
+                gameIsOver = true;
+                NavigateToPostgamescherm(winnerName);
+            }
         }
 
 
-        private void NavigateToGameOverScreen(string winnerName)
+        private void NavigateToPostgamescherm(string winnerName)
         {
             Postgamescherm postGameScherm = new Postgamescherm(winnerName);
             postGameScherm.Show();

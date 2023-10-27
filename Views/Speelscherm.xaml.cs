@@ -102,6 +102,19 @@ namespace Game_Interaction.Views
                 }
             }
 
+            // Checken of een speler dood is 
+            if (hitpointsPlayer1 <= 0)
+            {
+                EndGame("Player 1");
+            }
+            if (hitpointsPlayer2 <= 0)
+            {
+                EndGame("Player 2");
+            }
+
+
+
+
 
             // Verwijderen van de bullets in de list
             foreach (var bullet in bulletsToRemove)
@@ -222,7 +235,7 @@ namespace Game_Interaction.Views
 
             if (playerName == "Player1")
             {
-                Canvas.SetTop(newProjectile, Canvas.GetTop(player));
+                Canvas.SetTop(newProjectile, Canvas.GetTop(player) + player.Height - newProjectile.Height); // dit zodat het lijkt alsof er met rechts gegooid wordt
                 Canvas.SetLeft(newProjectile, Canvas.GetLeft(player) + player.Width);
                 newProjectile.Tag = "ProjectileRight";  // beweegt naar rechts
             }
@@ -235,5 +248,20 @@ namespace Game_Interaction.Views
 
             gameCanvas.Children.Add(newProjectile);
         }
+
+
+        public void EndGame(string winnerName)
+        {
+
+        }
+
+
+        private void NavigateToGameOverScreen(string winnerName)
+        {
+            Postgamescherm postGameScherm = new Postgamescherm(winnerName);
+            postGameScherm.Show();
+            this.Close();
+        }
+
     }
 }

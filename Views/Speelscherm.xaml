@@ -27,13 +27,13 @@
                 Grid.Row="1"
                 Grid.ColumnSpan="4">
             <Rectangle x:Name="Player1"
-                Height="50"
+                Height="60"
                 Width="60"
                 Fill="Orange"
                 Canvas.Left="50"
                 Canvas.Top="440"/>
             <Rectangle x:Name="Player2"
-                Height="50"
+                Height="60"
                 Width="60"
                 Fill="Orange"
                 Canvas.Left="1800"

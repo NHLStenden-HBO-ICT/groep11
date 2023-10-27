@@ -17,11 +17,12 @@ namespace Game_Interaction.Views
     /// <summary>
     /// Interaction logic for Post_gamescherm.xaml
     /// </summary>
-    public partial class Post_gamescherm : Window
+    public partial class Postgamescherm : Window
     {
-        public Post_gamescherm()
+        public Postgamescherm(string winnerName)
         {
             InitializeComponent();
+        
         }
     }
 }

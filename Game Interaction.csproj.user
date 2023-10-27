@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\Post-gamescherm.xaml.cs">
+    <Compile Update="Views\Postgamescherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\BeginScherm.xaml.cs">
@@ -30,7 +30,7 @@
     <Page Update="Views\Pregamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Post-gamescherm.xaml">
+    <Page Update="Views\Postgamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Speelscherm.xaml">

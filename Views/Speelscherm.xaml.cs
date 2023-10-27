@@ -24,8 +24,9 @@ namespace Game_Interaction.Views
         private bool moveLeft2, moveRight2, moveUp2, moveDown2;
         private DispatcherTimer gameTimer = new DispatcherTimer();
         private ImageBrush playerBrush = new ImageBrush();
-        private List<Rectangle> bulletsToRemove = new List<Rectangle>();
+        private List<Rectangle> itemsToRemove = new List<Rectangle>();
         private bool gameIsOver = false;
+        Random random = new Random();
 
         // Player1 Stats
         private int movementSpeedPlayer1 = 10;
@@ -40,6 +41,15 @@ namespace Game_Interaction.Views
         private int ticksBetweenShotsPlayer2 = 30;
         private int damagePlayer2 = 50;
         private int hitpointsPlayer2 = 500;
+
+        // Powerups
+        public List<string> powerUps = new List<string>
+        {
+            "HealthBoost",
+            "DamageIncrease",
+            "Shield"
+        };
+        private int healthPowerUp = 100;
 
         // Logica om ticksBetweenShots te laten werken
         private int shootCounter1 = 0;
@@ -81,7 +91,7 @@ namespace Game_Interaction.Views
                         if (bulletRect.IntersectsWith(player2Rect))
                         {
                             hitpointsPlayer2 -= damagePlayer1;
-                            bulletsToRemove.Add(x); 
+                            itemsToRemove.Add(x); 
                         }
 
                     }
@@ -97,7 +107,7 @@ namespace Game_Interaction.Views
                         {
                             hitpointsPlayer1 -= damagePlayer2;
                             Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
-                            bulletsToRemove.Add(x);
+                            itemsToRemove.Add(x);
                         }
                     }
                 }
@@ -118,9 +128,9 @@ namespace Game_Interaction.Views
 
 
             // Verwijderen van de bullets in de list
-            foreach (var bullet in bulletsToRemove)
+            foreach (var item in itemsToRemove)
             {
-                GameCanvas.Children.Remove(bullet);
+                GameCanvas.Children.Remove(item);
             }
 
             // Het schieten van de projectiles
@@ -201,7 +211,9 @@ namespace Game_Interaction.Views
             if (e.Key == Key.A) moveLeft1 = true;
             if (e.Key == Key.W) moveUp1 = true;
             if (e.Key == Key.S) moveDown1 = true;
-
+            // Tijdelijk voor testen
+            if (e.Key == Key.P) SpawnPowerUp(powerUps, GameCanvas);
+            
             // Controls voor Player2
             if (e.Key == Key.Right) moveRight2 = true;
             if (e.Key == Key.Left) moveLeft2 = true;
@@ -268,5 +280,52 @@ namespace Game_Interaction.Views
             this.Close();
         }
 
+
+        private void HealthPowerUp(string player)
+        {
+            if (player == "Player 1") hitpointsPlayer1 += healthPowerUp;
+            if (player == "Player 2") hitpointsPlayer2 += healthPowerUp;
+        }
+
+        
+
+        
+        private void SpawnPowerUp(List<string> powerUps, Canvas gameCanvas)
+        {
+            string powerUpPlayer1 = powerUps[0]; //random.Next(0, powerUps.Count)
+            string powerUpPlayer2 = powerUps[0];
+
+            if (powerUpPlayer1 == "HealthBoost")
+            {
+                Rectangle newPowerUp = new Rectangle
+                {
+                    Height = 30,
+                    Width = 30,
+                    Fill = Brushes.Red,
+                    Stroke = Brushes.White,
+                    Tag = "HealthBoost"
+                };
+                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetLeft(newPowerUp, random.Next(0, 930));
+                gameCanvas.Children.Add(newPowerUp);
+                
+            }
+
+            if (powerUpPlayer2 == "HealthBoost")
+            {
+                Rectangle newPowerUp = new Rectangle
+                {
+                    Height = 30,
+                    Width = 30,
+                    Fill = Brushes.Red,
+                    Stroke = Brushes.White,
+                    Tag = "HealthBoost"
+                };
+                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
+                gameCanvas.Children.Add(newPowerUp);
+
+            }
+        }
     }
 }

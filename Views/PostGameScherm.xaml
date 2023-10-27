@@ -5,25 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
-        Title="PostGameScherm"
-        WindowState = "Maximized"
-        WindowStyle="None">
+        Title="PostGameScherm" Height="1080" Width="1920"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow">
     <Grid>
-        <Image Source="/Image/Achtergrond.png" Stretch="Fill" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="290*"/>
+            <RowDefinition Height="180*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="210*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="128*"/>
+        </Grid.ColumnDefinitions>
         <!--De achtergrond-->
-        <Label Background="#FF586C70" Margin="702,15,702,793" BorderBrush="Black" BorderThickness="1"/>
-        <Image Source="/Image/Gymwars.png" Stretch="Fill" HorizontalAlignment="Center" Margin="0,25,0,803" Width="270"/>
+        <Image Source="/Image/Achtergrond.png" Stretch="Fill" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
         <!--Logo van de game-->
-        <Image Source="/Image/LogoSportschool.png" Stretch="Fill" Margin="630,860,640,30"/>
+        <Label Background="#FF586C70" Margin="400,20,400,20" BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Image Source="/Image/Gymwars.png" Stretch="Fill" HorizontalAlignment="Right" Margin="0,26,420,26" Width="314" Grid.Column="1" Grid.ColumnSpan="3"/>
         <!--Logo van de sportschool-->
-        <Label Background="#FF6D92AC" HorizontalAlignment="Center" Margin="0,278,0,204" Width="940" BorderBrush="Black" BorderThickness="2"/>
+        <Image Source="/Image/LogoSportschool.png" Stretch="Fill" Margin="300,15,300,15" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
         <!--Blok om de knoppen en speler die gewonnen heeft-->
-        <Button Content="Herstarten" Margin="473,501,915,427" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="HerstartKnop"/>
-        <Button Content="Leaderbord" Margin="915,501,473,427" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="LeaderbordKnop"/>
-        <Button Content="Hoofdmenu" Margin="473,639,915,289" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="HoofdmenuKnop"/>
-        <Button Content="Afsluiten" Margin="915,639,473,289" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="24" Foreground="White" Click="AfsluitenKnop"/>
+        <Label Background="#FF6D92AC" HorizontalAlignment="Left" Width="1152" BorderBrush="Black" BorderThickness="2" Grid.RowSpan="6" Grid.Column="1" Margin="0,290,0,0" Grid.ColumnSpan="3"/>
         <!--Alle buttons-->
-        <Label x:Name="SpelerWin" Content="[spelerNaamWin] heeft gewonnen!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,304,0,0"  FontFamily="Squada one" FontSize="40" Background="#FF586C70" Foreground="White" BorderBrush="Black" BorderThickness="1" Width="846" Height="71"/>
+        <Button Content="Herstarten" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="40" Foreground="White" Click="HerstartKnop" Margin="30,182,74,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button Content="Leaderbord" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="40" Foreground="White" Click="LeaderbordKnop" Margin="74,182,30,0" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button Content="Hoofdmenu" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="40" Foreground="White" Click="HoofdmenuKnop" Margin="30,0,74,50" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button Content="Afsluiten" Background="#FF586C70" BorderBrush="Black" FontFamily="Squada one" FontSize="40" Foreground="White" Click="AfsluitenKnop" Margin="74,0,30,50" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <!--Speler die gewonnen heeft komt hier te staan-->
+        <Label x:Name="SpelerWin" Content="[Player] heeft gewonnen!"  FontFamily="Squada one" FontSize="50" Background="#FF586C70" Foreground="White" BorderBrush="Black" BorderThickness="1" Height="92" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="30,0,30,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>

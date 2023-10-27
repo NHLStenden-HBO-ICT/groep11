@@ -33,14 +33,14 @@ namespace GameSportschoolKees.Views
             // Haal de waarden uit de TextBoxes voor Speler 1
             string naamSpeler1 = NaamSpeler1.Text.Trim();
             string emailSpeler1 = E_mailSpeler1.Text.Trim();
-            string leeftijdSpeler1 = LeeftijdSpeler1.Text.Trim();
-            string postcodeSpeler1 = PostcodeSpeler1.Text.Trim();
+            int? leeftijdSpeler1 = LeeftijdSpeler1.SelectedItem as int?;
+            string? postcodeSpeler1 = PostcodeSpeler1.Text.Trim();
 
             // Haal de waarden uit de TextBoxes voor Speler 2
             string naamSpeler2 = NaamSpeler2.Text.Trim();
             string emailSpeler2 = E_mailSpeler2.Text.Trim();
-            string leeftijdSpeler2 = LeeftijdSpeler2.Text.Trim();
-            string postcodeSpeler2 = PostcodeSpeler2.Text.Trim();
+            int? leeftijdSpeler2 = LeeftijdSpeler2.SelectedItem as int?;
+            string? postcodeSpeler2 = PostcodeSpeler2.Text.Trim();
 
             // Controleer of gegevens speler 1 (correct) zijn ingevuld
             
@@ -110,18 +110,19 @@ namespace GameSportschoolKees.Views
             // Als de ingevulde waarden al in de csv file bestaan, niet toevoegen
             
             string path = @"..\..\..\Data\Player_info.csv";
-            
-            // Instance van Speler aanmaken om uit CSV bestand te kunnen lezen en in de list te zetten.
-            List<Speler> spelersUitCV = Speler.LeesSpelersUitCSV(path);
-            Speler speler1 = null;
-            Speler speler2 = null;
+
+
+            // Spelers uit CSV file lezen en variabelen voor spelers aanmaken
+            // Spelers komen in een list met index 0: Naam, 1: E-mail, 2: Postcode, 3: Leeftijd, 4: Aantal wins
+            List<List<object>> spelersUitCV = DataMethods.LeesSpelersUitCSV(path);
+            List<object> speler1 = null;
+            List<object> speler2 = null;
 
             // Loop door alle spelers die in het bestand staan
             // Als er een speler bestaat met de ingevulde naam en email combinatie wordt variabele 'speler1' gevuld met deze info
-            foreach (Speler speler in spelersUitCV)
-
+            foreach (List<object> speler in spelersUitCV)
             {
-                if (speler.Naam == naamSpeler1 && speler.Email == emailSpeler1)
+                if (speler[0].ToString() == naamSpeler1 && speler[1].ToString() == emailSpeler1)
                 {
                     speler1 = speler;
                     break;
@@ -132,23 +133,15 @@ namespace GameSportschoolKees.Views
             // en deze toevoegen aan CSV file
             if (speler1 == null) 
             {
-                speler1 = new Speler
-                {
-                    Naam = naamSpeler1,
-                    Email = emailSpeler1,
-                    Postcode = postcodeSpeler1,
-                    Leeftijd = int.Parse(leeftijdSpeler1),
-                    Wins = 0
-                };
+                speler1 = new List<object> { naamSpeler1, emailSpeler1, postcodeSpeler1, leeftijdSpeler1, 0 };        
                 spelersUitCV.Add(speler1);
             }
 
             // Loop door alle spelers die in het bestand staan (nu voor speler 2)
             // Als er een speler bestaat met de ingevulde naam en email combinatie wordt variabele 'speler1' gevuld met deze info
-            foreach (Speler speler in spelersUitCV)
-
+            foreach (List<object> speler in spelersUitCV)
             {
-                if (speler.Naam == naamSpeler1 && speler.Email == emailSpeler1)
+                if (speler[0].ToString() == naamSpeler2 && speler[1].ToString() == emailSpeler2)
                 {
                     speler2 = speler;
                     break;
@@ -159,22 +152,33 @@ namespace GameSportschoolKees.Views
             // en deze toevoegen aan CSV file
             if (speler2 == null)
             {
-                speler2 = new Speler
-                {
-                    Naam = naamSpeler1,
-                    Email = emailSpeler1,
-                    Postcode = postcodeSpeler1,
-                    Leeftijd = int.Parse(leeftijdSpeler1),
-                    Wins = 0
-                };
+                speler2 = new List<object> { naamSpeler2, emailSpeler2, postcodeSpeler2, leeftijdSpeler2, 0 };
                 spelersUitCV.Add(speler2);
             }
+            spelersUitCV.Add(speler2);
+            
 
             // Bijgewerkte lijst terugschrijven naar CSV
-            Speler.SchrijfSpelersNaarCSV(spelersUitCV, path);
+            DataMethods.SchrijfSpelersNaarCSV(spelersUitCV, path);
 
 
 
+        }
+
+        private void LeeftijdSpeler1_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 14; i <= 100; i++)
+            {
+                LeeftijdSpeler1.Items.Add(i);
+            }
+        }
+
+        private void LeeftijdSpeler2_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 14; i <= 100; i++)
+            {
+                LeeftijdSpeler2.Items.Add(i);
+            }
         }
     }
 }

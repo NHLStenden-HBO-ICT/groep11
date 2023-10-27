@@ -11,25 +11,19 @@ using System.Globalization;
 
 namespace Game_Interaction
 {
-    public class Speler
+    public class DataMethods
     {
-        public string Naam { get; set; }
-        public string Email { get; set; }
-        public string? Postcode { get; set; } //Niet verplicht dus nullable
-        public int? Leeftijd { get; set; } //Niet verplicht dus nullable
-        public int Wins { get; set; }
-    
-
-        public static List<Speler> LeesSpelersUitCSV(string filePath)
+        // Spelers komen in een list met index 0: Naam, 1: E-mail, 2: Postcode, 3: Leeftijd, 4: Aantal wins
+        public static List<List<object>> LeesSpelersUitCSV(string filePath)
         {
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                return csv.GetRecords<Speler>().ToList();
+                return csv.GetRecords<List<object>>().ToList();
             }
         }
 
-        public static void SchrijfSpelersNaarCSV(List<Speler> spelers, string filePath)
+        public static void SchrijfSpelersNaarCSV(List<List<object>> spelers, string filePath)
         {
             using (var writer = new StreamWriter(filePath))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
@@ -38,9 +32,9 @@ namespace Game_Interaction
             }
         }
 
-        public void SpelerGewonnen()
+        public void SpelerGewonnen(List<object> speler)
         {
-            this.Wins++;
+            speler[4] = (int)speler[4] + 1;
         }
 
 

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using Game_Interaction;
 using System.Windows.Markup;
+using Game_Interaction.Views;
 
 namespace GameSportschoolKees.Views
 {
@@ -30,7 +31,9 @@ namespace GameSportschoolKees.Views
 
         private void StartKnop_Click(object sender, RoutedEventArgs e)
         {
-
+            Speelscherm speelScherm = new Speelscherm();
+            speelScherm.Show();
+            this.Close();
         }  
     }
 }

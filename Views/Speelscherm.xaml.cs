@@ -24,23 +24,24 @@ namespace Game_Interaction.Views
         private bool moveLeft2, moveRight2, moveUp2, moveDown2;
         private DispatcherTimer gameTimer = new DispatcherTimer();
         private ImageBrush playerBrush = new ImageBrush();
+        private List<Rectangle> bulletsToRemove = new List<Rectangle>();
 
         // Player1 Stats
         private int movementSpeedPlayer1 = 10;
         private int bulletSpeedPlayer1 = 20;
         private int ticksBetweenShotsPlayer1 = 30;
-        private int damagePlayer1;
-        private int hitpointsPlayer1;
+        private int damagePlayer1 = 1;
+        private int hitpointsPlayer1 = 500;
 
         // Player2 Stats
         private int movementSpeedPlayer2 = 10;
         private int bulletSpeedPlayer2 = 20;
         private int ticksBetweenShotsPlayer2 = 30;
-        private int damagePlayer2;
-        private int hitpointsPlayer2;
+        private int damagePlayer2 = 1;
+        private int hitpointsPlayer2 = 500;
 
 
-
+        // Logica om ticksBetweenShots te laten werken
         private int shootCounter1 = 0;
         private int shootCounter2 = 0;
 
@@ -65,19 +66,46 @@ namespace Game_Interaction.Views
             foreach (var x in GameCanvas.Children.OfType<Rectangle>())
             {
 
-                if (x.Tag != null)
+                if (x.Tag != null) // Idk waarom maar soms crashte de game omdat tag null was, dit fixte t
                 {
+                    Rect bulletRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
                     // Player 1
                     if (x.Tag.ToString() == "ProjectileRight")
                     {
+                        // Laat bullet bewegen
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + bulletSpeedPlayer1);
+                        
+                        // Logica om te kijken of bullet van player 1, player 2 hit
+                        Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
+                        if (bulletRect.IntersectsWith(player2Rect))
+                        {
+                            hitpointsPlayer2 -= damagePlayer1;
+                            bulletsToRemove.Add(x); 
+                        }
+
                     }
                     // Player 2
                     else if (x.Tag.ToString() == "ProjectileLeft")
                     {
+                        // Laat bullet bewegen
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - bulletSpeedPlayer2);
+
+                        // Logica om te kijken of bullet van player 2, player 1 hit
+                        Rect player1Rect = new Rect(Canvas.GetLeft(Player1), Canvas.GetTop(Player1), Player1.Width, Player1.Height);
+                        if (bulletRect.IntersectsWith(player1Rect))
+                        {
+                            hitpointsPlayer1 -= damagePlayer2;
+                            Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
+                            bulletsToRemove.Add(x);
+                        }
                     }
                 }
+            }
+
+            foreach (var bullet in bulletsToRemove)
+            {
+                GameCanvas.Children.Remove(bullet);
             }
 
             shootCounter1++;

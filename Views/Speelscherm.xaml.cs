@@ -40,7 +40,6 @@ namespace Game_Interaction.Views
         private int damagePlayer2 = 1;
         private int hitpointsPlayer2 = 500;
 
-
         // Logica om ticksBetweenShots te laten werken
         private int shootCounter1 = 0;
         private int shootCounter2 = 0;
@@ -70,13 +69,13 @@ namespace Game_Interaction.Views
                 {
                     Rect bulletRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                    // Player 1
+                    // Projectile van Player 1
                     if (x.Tag.ToString() == "ProjectileRight")
                     {
                         // Laat bullet bewegen
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + bulletSpeedPlayer1);
                         
-                        // Logica om te kijken of bullet van player 1, player 2 hit
+                        // Logica om te kijken of Projectile van player 1, player 2 hit
                         Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
                         if (bulletRect.IntersectsWith(player2Rect))
                         {
@@ -85,13 +84,13 @@ namespace Game_Interaction.Views
                         }
 
                     }
-                    // Player 2
+                    // Projectile van Player 2
                     else if (x.Tag.ToString() == "ProjectileLeft")
                     {
                         // Laat bullet bewegen
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - bulletSpeedPlayer2);
 
-                        // Logica om te kijken of bullet van player 2, player 1 hit
+                        // Logica om te kijken of Projectile van player 2, player 1 hit
                         Rect player1Rect = new Rect(Canvas.GetLeft(Player1), Canvas.GetTop(Player1), Player1.Width, Player1.Height);
                         if (bulletRect.IntersectsWith(player1Rect))
                         {
@@ -103,11 +102,14 @@ namespace Game_Interaction.Views
                 }
             }
 
+
+            // Verwijderen van de bullets in de list
             foreach (var bullet in bulletsToRemove)
             {
                 GameCanvas.Children.Remove(bullet);
             }
 
+            // Het schieten van de projectiles
             shootCounter1++;
             shootCounter2++;
 

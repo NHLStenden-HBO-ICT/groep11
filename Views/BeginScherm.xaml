@@ -1,12 +1,41 @@
-﻿<Window x:Class="Game_Interaction.Views.BeginScherm"
+﻿<Window x:Class="Game.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Game_Interaction.Views"
+        xmlns:local="clr-namespace:Game"
         mc:Ignorable="d"
-		Title="BeginScherm" Height="1080" Width="1920">
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
+        Title="MainWindow" Height="1080" Width="1920">
+
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\sander\Pictures\sportschool.PNG"/>
+    </Window.Background>
+
     <Grid>
-        <Button x:Name="___Start_" Content="Button" HorizontalAlignment="Left" Height="69" Margin="41,39,0,0" VerticalAlignment="Top" Width="103"/>
+        <!--<Label Content="GymWars"  Foreground="Black" FontFamily="regular 400" FontSize="75" HorizontalAlignment="Center" Background="Transparent" Margin="200,10,200,909"/> -->
+        <Label Background="#FF586c70" Margin="1213,77,468,869"/>
+        <Image Source="C:\Users\sander\Pictures\Gymwars.png" Margin="1167,15,468,815" RenderTransformOrigin="3.896,1.146" >
+        </Image>
+       
+
+        <!--Dit is het scherm aan de binnen kant-->
+        <Grid Background="#FF586c70" Margin="400,200,400,200">
+            <StackPanel Background="Transparent" HorizontalAlignment="Left" >
+                <Button Content="Start" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,100,0,0" BorderThickness="1"/>
+                <Button Content="Instellingen" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
+                <Button Content="Leaderboard" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
+                <Button Content="Afsluiten" Click="QuitClick" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
+                <Image Source="C:\Users\sander\Pictures\logo-sportschool-kees.PNG" Height="152" Width="434" Margin="0,75,0,0"/>
+            </StackPanel>
+            <!-- linkerkant van het scherm -->
+            <StackPanel Background="Black" Margin="710,0,0,0">
+                <Label Content="Leaderbord" FontSize="50" Foreground="Wheat" HorizontalAlignment="Center" BorderBrush="Azure" BorderThickness="1" />
+            </StackPanel>
+
+
+        </Grid>
     </Grid>
 </Window>

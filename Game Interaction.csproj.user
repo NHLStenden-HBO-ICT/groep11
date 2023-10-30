@@ -7,12 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\Post-gamescherm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\BeginScherm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Besturingscherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,16 +18,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\BeginScherm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Besturingscherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pregamescherm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Post-gamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Speelscherm.xaml">

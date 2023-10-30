@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using Game_Interaction;
 using System.Windows.Markup;
 
-namespace GameSportschoolKees.Views
+namespace Game_interaction.Views
 {
     /// <summary>
     /// Interaction logic for Pregamescherm.xaml
@@ -42,6 +42,8 @@ namespace GameSportschoolKees.Views
             int? leeftijdSpeler2 = LeeftijdSpeler2.SelectedItem as int?;
             string? postcodeSpeler2 = PostcodeSpeler2.Text.Trim();
 
+
+            /*
             // Controleer of gegevens speler 1 (correct) zijn ingevuld
             
             // Naam speler 1
@@ -179,6 +181,8 @@ namespace GameSportschoolKees.Views
             {
                 LeeftijdSpeler2.Items.Add(i);
             }
+        }
+    */
         }
     }
 }

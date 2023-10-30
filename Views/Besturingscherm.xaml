@@ -26,5 +26,5 @@
         <Label Background="#FF586C70" Margin="798,715,724,10" Grid.Row="1"/>
         <Label Content="Esc" HorizontalAlignment="Left" Margin="824,735,0,0" VerticalAlignment="Top" Width="52" Height="41" Background="White" BorderThickness="1" BorderBrush="Black" FontFamily="Squada one" FontSize="32" Grid.Row="1"/>
         <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="881,736,0,0" FontSize="32" Height="44" HorizontalAlignment="Left" Grid.Row="1" Width="294"/>
-        <Grid/>
+        </Grid>
 </Window>

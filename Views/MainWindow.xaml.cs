@@ -11,16 +11,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game_Interaction.Views
+namespace Game_interaction.Views
 {
     /// <summary>
-    /// Interaction logic for BeginScherm.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class BeginScherm : Window
+    public partial class MainWindow : Window
     {
-        public BeginScherm()
+        public MainWindow()
         {
             InitializeComponent();
         }

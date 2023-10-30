@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
-        Title="BeginScherm" Height="450" Width="800">
+		Title="BeginScherm" Height="1080" Width="1920">
     <Grid>
         <Button x:Name="___Start_" Content="Button" HorizontalAlignment="Left" Height="69" Margin="41,39,0,0" VerticalAlignment="Top" Width="103"/>
     </Grid>

@@ -6,8 +6,5 @@
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
         Title="Besturingscherm" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="_Esc_" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-
-    </Grid>
+    <Grid/>
 </Window>

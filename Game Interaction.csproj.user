@@ -10,13 +10,13 @@
     <Compile Update="Views\Post-gamescherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pre-gamescherm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\BeginScherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Besturingscherm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Speelscherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -27,13 +27,13 @@
     <Page Update="Views\Besturingscherm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\MainWindow.xaml">
+    <Page Update="Views\Pregamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Post-gamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pre-gamescherm.xaml">
+    <Page Update="Views\Speelscherm.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

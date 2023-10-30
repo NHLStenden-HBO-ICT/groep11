@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameSportschoolKees.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,26 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class Besturingscherm : Window
     {
-        public Besturingscherm()
+        MainWindow main;
+        public Besturingscherm(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TerugNaarHoofdmenu(object sender, RoutedEventArgs e) //button om terug te gaan naar het hoofdmenu
         {
-
+            Close();
+            main.Visibility = Visibility.Visible;
+        }
+        private void HandleEsc(object sender, KeyEventArgs e) //Esc toets sluit besturingscherm af
+        {
+            if (e.Key == Key.Escape) 
+            {
+                Close();
+                main.Visibility = Visibility.Visible;
+            }
         }
     }
 }

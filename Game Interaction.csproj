@@ -9,6 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\Achtergrond.png" />
+    <None Remove="Image\BestruringEind.PNG" />
+    <None Remove="Image\Bs.PNG" />
+    <None Remove="Image\Gymwars.jpg" />
+    <None Remove="Image\Gymwars.png" />
+    <None Remove="Image\LogoSportschool.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Achtergrond.png" />
+    <Resource Include="Image\Bs.PNG" />
+    <Resource Include="Image\Gymwars.png" />
+    <Resource Include="Image\LogoSportschool.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Image\**" />
     <EmbeddedResource Remove="Image\**" />
     <None Remove="Image\**" />

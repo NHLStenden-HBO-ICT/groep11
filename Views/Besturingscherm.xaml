@@ -8,7 +8,7 @@
         Title="Besturingscherm" Height="1080" Width="1920"
         WindowState = "Maximized"
         WindowStyle="SingleBorderWindow">
-        <Grid>    
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="421*"/>

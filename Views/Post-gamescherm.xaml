@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
-        Title="Post_gamescherm" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid Margin="10,10,0,-6">
+        <Button x:Name="Bestruring" Content="Besturingscherm" Click="Bestruring_Click" Margin="84,108,1174,601"/>
+        <Button x:Name="Quit" Click="QuitButton" Content="Quit" Margin="1182,108,306,443"/>
+        <Button Click="PostGameClick" Margin="160,615,811,39" Content="Postgame"/>
     </Grid>
 </Window>

@@ -20,28 +20,26 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class PostGameScherm : Window
     {
-        MainWindow main;
-        public PostGameScherm(MainWindow main)
+        public PostGameScherm()
         {
-            this.main = main;
+            InitializeComponent();
         }
 
         private void HerstartKnop(object sender, RoutedEventArgs e) //Button om de game te herstarten
         {
-            Close();
-            main.Visibility = Visibility.Visible;
+
         }
 
         private void LeaderbordKnop(object sender, RoutedEventArgs e) //Button om naar de leaderbord te gaan
         {
-            Close();
-            main.Visibility = Visibility.Visible; 
+
         }
 
         private void HoofdmenuKnop(object sender, RoutedEventArgs e) //Button om terug te gaan naar het hoofdmenu
         {
-            Close();
-            main.Visibility = Visibility.Visible;
+            BeginScherm bs = new BeginScherm();
+            bs.Show();
+            this.Close();
         }
 
         private void AfsluitenKnop(object sender, RoutedEventArgs e) //Button om alle windows af te sluiten

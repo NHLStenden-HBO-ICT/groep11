@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game
+namespace Game_Interaction.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BeginScherm : Window
     {
-        public MainWindow()
+        public BeginScherm()
         {
             InitializeComponent();
         }

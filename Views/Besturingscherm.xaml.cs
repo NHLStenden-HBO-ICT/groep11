@@ -20,25 +20,26 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class Besturingscherm : Window
     {
-        MainWindow main;
-        public Besturingscherm(MainWindow main)
+        
+        public Besturingscherm()
         {
             InitializeComponent();
-            this.main = main;
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
         private void TerugNaarHoofdmenu(object sender, RoutedEventArgs e) //button om terug te gaan naar het hoofdmenu
         {
-            Close();
-            main.Visibility = Visibility.Visible;
+            BeginScherm bs = new BeginScherm();
+            bs.Show();
+            this.Close();
         }
         private void HandleEsc(object sender, KeyEventArgs e) //Esc toets sluit besturingscherm af
         {
             if (e.Key == Key.Escape) 
             {
-                Close();
-                main.Visibility = Visibility.Visible;
+                BeginScherm bs = new BeginScherm();
+                bs.Show();
+                this.Close();
             }
         }
     }

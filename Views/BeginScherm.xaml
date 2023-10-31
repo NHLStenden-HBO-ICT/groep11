@@ -1,14 +1,14 @@
-﻿<Window x:Class="Game.MainWindow"
+﻿<Window x:Class="Game_Interaction.Views.BeginScherm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Game"
+        xmlns:local="clr-namespace:Game_interaction.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         WindowStyle="SingleBorderWindow"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="BeginScherm" Height="1080" Width="1920">
 
     <Window.Background>
         <ImageBrush ImageSource="pack://application:,,,/Images/Background.png"/>

@@ -8,7 +8,7 @@ using System.Windows;
 
 
 
-namespace GameSportschoolKees
+namespace Game_interaction
 {
     /// <summary>
     /// Interaction logic for App.xaml

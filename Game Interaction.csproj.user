@@ -7,33 +7,37 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\Postgamescherm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\BeginScherm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Besturingscherm.xaml.cs">
+    <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Postgamescherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Speelscherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PostGameScherm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\BeginScherm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Besturingscherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pregamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Speelscherm.xaml">
+    <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Postgamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Speelscherm.xaml">
+    <Page Update="Views\PostGameScherm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    </Page>
+    <Page Update="Views\Postgamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

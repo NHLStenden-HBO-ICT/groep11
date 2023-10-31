@@ -351,20 +351,26 @@ namespace Game_Interaction.Views
         {
             Rectangle newProjectile = new Rectangle
             {
-                Height = 20,
-                Width = 20,
-                Fill = Brushes.White,
-                Stroke = Brushes.Red
+                Height = 50,
+                Width = 50,
             };
 
+            
             if (playerName == "Player1")
             {
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Kettlebell4kgPl1.png", UriKind.Absolute));
+                newProjectile.Fill = imageBrush;
                 Canvas.SetTop(newProjectile, Canvas.GetTop(player) + player.Height - newProjectile.Height); // dit zodat het lijkt alsof er met rechts gegooid wordt
                 Canvas.SetLeft(newProjectile, Canvas.GetLeft(player) + player.Width);
                 newProjectile.Tag = "ProjectileRight";  // beweegt naar rechts
+
             }
             else if (playerName == "Player2")
             {
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Kettlebell4kgPl2.png", UriKind.Absolute));
+                newProjectile.Fill = imageBrush;
                 Canvas.SetTop(newProjectile, Canvas.GetTop(player));
                 Canvas.SetLeft(newProjectile, Canvas.GetLeft(player) - newProjectile.Width);
                 newProjectile.Tag = "ProjectileLeft";   // beweegt naar links

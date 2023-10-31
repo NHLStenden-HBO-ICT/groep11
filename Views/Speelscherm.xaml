@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Game_Interaction.Views"
         mc:Ignorable="d"
         WindowState="Maximized"
-        WindowStyle="SingleBorderWindow"
+        WindowStyle="None"
+        Topmost="true"
+        ResizeMode="NoResize"
         Title="Speelscherm" Height="1080" Width="1920">
     <Grid>
         <Grid.RowDefinitions>
@@ -21,23 +23,37 @@
         </Grid.ColumnDefinitions>
         <Canvas x:Name="GameCanvas"
                 Focusable="True"
-                Background="Black"
+                Background="DarkGreen"
                 KeyDown="OnKeyDown"
                 KeyUp="OnKeyUp"
                 Grid.Row="1"
                 Grid.ColumnSpan="4">
             <Rectangle x:Name="Player1"
-                Height="60"
-                Width="60"
-                Fill="Orange"
-                Canvas.Left="50"
-                Canvas.Top="440"/>
+                Height="150"
+                Width="150"
+                Canvas.Left="55"
+                Canvas.Top="395">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Image/character1.png">
+                        <ImageBrush.RelativeTransform>
+                            <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
             <Rectangle x:Name="Player2"
-                Height="60"
-                Width="60"
-                Fill="Orange"
-                Canvas.Left="1800"
-                Canvas.Top="440"/>
+                Height="150"
+                Width="150"
+                Canvas.Left="1720"
+                Canvas.Top="395">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Image/character2.png">
+                        <ImageBrush.RelativeTransform>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
             <Rectangle x:Name="MiddleLine"
                 Height="1080"
                 Width="5"

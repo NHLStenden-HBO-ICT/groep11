@@ -43,6 +43,9 @@ namespace Game_interaction.Views
             int? leeftijdSpeler2 = LeeftijdSpeler2.SelectedItem as int?;
             string? postcodeSpeler2 = PostcodeSpeler2.Text.Trim();
 
+            Speelscherm speelScherm = new Speelscherm();
+            speelScherm.Show();
+            this.Close();
 
             /*
             // Controleer of gegevens speler 1 (correct) zijn ingevuld

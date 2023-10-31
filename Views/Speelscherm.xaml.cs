@@ -408,12 +408,15 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Red,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "HealthBoostPlayer1"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 930));
                 gameCanvas.Children.Add(newPowerUp);
@@ -424,12 +427,15 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Red,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "HealthBoostPlayer2"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
                 gameCanvas.Children.Add(newPowerUp);
@@ -441,14 +447,17 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Gold,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "DamageIncreasePlayer1"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(0, 930));
+                Canvas.SetLeft(newPowerUp, random.Next(0, 900));
                 gameCanvas.Children.Add(newPowerUp);
             }
 
@@ -456,14 +465,17 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Gold,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "DamageIncreasePlayer2"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
+                Canvas.SetLeft(newPowerUp, random.Next(960, 1870));
                 gameCanvas.Children.Add(newPowerUp);
             }
         }

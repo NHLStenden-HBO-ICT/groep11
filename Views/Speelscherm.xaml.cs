@@ -59,8 +59,7 @@ namespace Game_Interaction.Views
         public List<string> powerUps = new List<string>
                 {
                     "HealthBoost",
-                    "DamageIncrease",
-                    "Shield"
+                    "DamageIncrease"
                 };
 
         // Logica om ticksBetweenShots te laten werken
@@ -163,6 +162,20 @@ namespace Game_Interaction.Views
                             itemsToRemove.Add(x);
                         }
                     }
+
+                    if (x.Tag.ToString() == "DamageIncreasePlayer2")
+                    {
+                        Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
+                        Rect damageIncreasePowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                        if (damageIncreasePowerUpRect.IntersectsWith(player2Rect))
+                        {
+                            hasPowerUpPlayer2 = true;
+                            currentPowerUpPlayer2 = "DamageIncrease";
+                            damagePlayer2 += damageIncreasePowerUp;
+                            Player2Damage.Content = $"Player 2: {damagePlayer2} damage";
+                            itemsToRemove.Add(x);
+                        }
+                    }
                 }
             }
 
@@ -197,6 +210,18 @@ namespace Game_Interaction.Views
                     damagePlayer1 -= damageIncreasePowerUp;
                     Player1Damage.Content = $"Player 1: {damagePlayer1} damage";
                     currentPowerUpPlayer1 = "nothing";
+                }
+            }
+
+            if (powerUpTimerPlayer2 >= powerUpTimeInTicks)
+            {
+                hasPowerUpPlayer2 = false;
+                powerUpTimerPlayer2 = 0;
+                if (currentPowerUpPlayer2 == "DamageIncrease")
+                {
+                    damagePlayer2 -= damageIncreasePowerUp;
+                    Player2Damage.Content = $"Player 2: {damagePlayer2} damage";
+                    currentPowerUpPlayer2 = "nothing";
                 }
             }
 
@@ -358,8 +383,8 @@ namespace Game_Interaction.Views
 
         private void SpawnPowerUp(List<string> powerUps, Canvas gameCanvas)
         {
-            string powerUpPlayer1 = powerUps[1]; //random.Next(0, powerUps.Count)
-            string powerUpPlayer2 = powerUps[0];
+            string powerUpPlayer1 = powerUps[random.Next(0, powerUps.Count)]; 
+            string powerUpPlayer2 = powerUps[random.Next(0, powerUps.Count)];
 
             // HealthBoost Powerup
             if (powerUpPlayer1 == "HealthBoost")
@@ -372,7 +397,7 @@ namespace Game_Interaction.Views
                     Stroke = Brushes.White,
                     Tag = "HealthBoostPlayer1"
                 };
-                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 930));
                 gameCanvas.Children.Add(newPowerUp);
 
@@ -388,7 +413,7 @@ namespace Game_Interaction.Views
                     Stroke = Brushes.White,
                     Tag = "HealthBoostPlayer2"
                 };
-                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
                 gameCanvas.Children.Add(newPowerUp);
 
@@ -405,7 +430,7 @@ namespace Game_Interaction.Views
                     Stroke = Brushes.White,
                     Tag = "DamageIncreasePlayer1"
                 };
-                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 930));
                 gameCanvas.Children.Add(newPowerUp);
             }
@@ -420,7 +445,7 @@ namespace Game_Interaction.Views
                     Stroke = Brushes.White,
                     Tag = "DamageIncreasePlayer2"
                 };
-                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
                 gameCanvas.Children.Add(newPowerUp);
             }

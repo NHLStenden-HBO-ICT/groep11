@@ -53,7 +53,7 @@ namespace Game_Interaction.Views
         private string currentPowerUpPlayer2 = "nothing";
 
         // Powerups
-        private int powerUpTimeInTicks = 200; //50 ticks is 1 seconde
+        private int powerUpDurationInTicks = 200; //50 ticks is 1 seconde
         private int healthPowerUp = 100;
         private int damageIncreasePowerUp = 30;
         private int ticksBetweenPowerUpSpawns = 1000; // Randomized; gemiddeld 1000 ticks
@@ -212,7 +212,7 @@ namespace Game_Interaction.Views
            
 
             // Check of poweruptimer bij max tijd van powerup komt
-            if (powerUpTimerPlayer1 >= powerUpTimeInTicks)
+            if (powerUpTimerPlayer1 >= powerUpDurationInTicks)
             {
                 hasPowerUpPlayer1 = false;
                 powerUpTimerPlayer1 = 0;
@@ -224,7 +224,7 @@ namespace Game_Interaction.Views
                 }
             }
 
-            if (powerUpTimerPlayer2 >= powerUpTimeInTicks)
+            if (powerUpTimerPlayer2 >= powerUpDurationInTicks)
             {
                 hasPowerUpPlayer2 = false;
                 powerUpTimerPlayer2 = 0;

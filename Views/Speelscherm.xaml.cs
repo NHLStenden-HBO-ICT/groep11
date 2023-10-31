@@ -72,18 +72,17 @@ namespace Game_Interaction.Views
         {
             double newLeft1, newTop1, newLeft2, newTop2;
 
-            // Schieten van de projectiles
+            // Schieten van de projectiles + Powerup logica (beide hier omdat er met rectangles wordt gewerkt)
             foreach (var x in GameCanvas.Children.OfType<Rectangle>())
             {
 
                 if (x.Tag != null) // Idk waarom maar soms crashte de game omdat tag null was, dit fixte t
                 {
-                    Rect bulletRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
                     // Projectile van Player 1
                     if (x.Tag.ToString() == "ProjectileRight")
                     {
                         // Laat bullet bewegen
+                        Rect bulletRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + bulletSpeedPlayer1);
                         
                         // Logica om te kijken of Projectile van player 1, player 2 hit
@@ -91,6 +90,7 @@ namespace Game_Interaction.Views
                         if (bulletRect.IntersectsWith(player2Rect))
                         {
                             hitpointsPlayer2 -= damagePlayer1;
+                            Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
                             itemsToRemove.Add(x); 
                         }
 
@@ -99,6 +99,7 @@ namespace Game_Interaction.Views
                     else if (x.Tag.ToString() == "ProjectileLeft")
                     {
                         // Laat bullet bewegen
+                        Rect bulletRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - bulletSpeedPlayer2);
 
                         // Logica om te kijken of Projectile van player 2, player 1 hit
@@ -107,6 +108,32 @@ namespace Game_Interaction.Views
                         {
                             hitpointsPlayer1 -= damagePlayer2;
                             Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
+                            itemsToRemove.Add(x);
+                        }
+                    }
+
+                    // Kijken of player 1 zijn Healthboost oppakt
+                    if (x.Tag.ToString() == "HealthBoostPlayer1")
+                    {
+                        Rect player1Rect = new Rect(Canvas.GetLeft(Player1), Canvas.GetTop(Player1), Player1.Width, Player1.Height);
+                        Rect healthPowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                        if(healthPowerUpRect.IntersectsWith(player1Rect))
+                        {
+                            hitpointsPlayer1 += healthPowerUp;
+                            Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
+                            itemsToRemove.Add(x);
+                        }
+                    }
+
+                    // Kijken of player 2 zijn Healthboost oppakt
+                    if (x.Tag.ToString() == "HealthBoostPlayer2")
+                    {
+                        Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
+                        Rect healthPowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                        if (healthPowerUpRect.IntersectsWith(player2Rect))
+                        {
+                            hitpointsPlayer2 += healthPowerUp;
+                            Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
                             itemsToRemove.Add(x);
                         }
                     }
@@ -281,15 +308,6 @@ namespace Game_Interaction.Views
         }
 
 
-        private void HealthPowerUp(string player)
-        {
-            if (player == "Player 1") hitpointsPlayer1 += healthPowerUp;
-            if (player == "Player 2") hitpointsPlayer2 += healthPowerUp;
-        }
-
-        
-
-        
         private void SpawnPowerUp(List<string> powerUps, Canvas gameCanvas)
         {
             string powerUpPlayer1 = powerUps[0]; //random.Next(0, powerUps.Count)
@@ -303,7 +321,7 @@ namespace Game_Interaction.Views
                     Width = 30,
                     Fill = Brushes.Red,
                     Stroke = Brushes.White,
-                    Tag = "HealthBoost"
+                    Tag = "HealthBoostPlayer1"
                 };
                 Canvas.SetTop(newPowerUp, random.Next(0, 1050));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 930));
@@ -319,7 +337,7 @@ namespace Game_Interaction.Views
                     Width = 30,
                     Fill = Brushes.Red,
                     Stroke = Brushes.White,
-                    Tag = "HealthBoost"
+                    Tag = "HealthBoostPlayer2"
                 };
                 Canvas.SetTop(newPowerUp, random.Next(0, 1050));
                 Canvas.SetLeft(newPowerUp, random.Next(960, 1890));

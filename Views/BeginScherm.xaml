@@ -11,13 +11,13 @@
         Title="MainWindow" Height="1080" Width="1920">
 
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\sander\Pictures\sportschool.PNG"/>
+        <ImageBrush ImageSource="pack://application:,,,/Images/Background.png"/>
     </Window.Background>
 
     <Grid>
         <!--<Label Content="GymWars"  Foreground="Black" FontFamily="regular 400" FontSize="75" HorizontalAlignment="Center" Background="Transparent" Margin="200,10,200,909"/> -->
         <Label Background="#FF586c70" Margin="1213,77,468,869"/>
-        <Image Source="C:\Users\sander\Pictures\Gymwars.png" Margin="1167,15,468,815" RenderTransformOrigin="3.896,1.146" >
+        <Image Source="pack://application:,,,/Image/Gymwars.png" Margin="1167,15,468,815" RenderTransformOrigin="3.896,1.146" >
         </Image>
        
 
@@ -28,7 +28,7 @@
                 <Button Content="Instellingen" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Button Content="Leaderboard" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Button Content="Afsluiten" Click="QuitClick" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
-                <Image Source="C:\Users\sander\Pictures\logo-sportschool-kees.PNG" Height="152" Width="434" Margin="0,75,0,0"/>
+                <Image Source="pack://application:,,,/Image/LogoSportschool.png" Height="152" Width="434" Margin="0,75,0,0"/>
             </StackPanel>
             <!-- linkerkant van het scherm -->
             <StackPanel Background="Black" Margin="710,0,0,0">

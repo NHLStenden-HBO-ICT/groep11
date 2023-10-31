@@ -23,7 +23,6 @@ namespace Game_Interaction.Views
         MainWindow main;
         public PostGameScherm(MainWindow main)
         {
-            InitializeComponent();
             this.main = main;
         }
 

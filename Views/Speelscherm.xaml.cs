@@ -386,8 +386,8 @@ namespace Game_Interaction.Views
 
         private void NavigateToPostgamescherm(string winnerName)
         {
-            Postgamescherm postGameScherm = new Postgamescherm(winnerName);
-            postGameScherm.Show();
+            // Postgamescherm postGameScherm = new Postgamescherm(winnerName);
+            // postGameScherm.Show();
             this.Close();
         }
 

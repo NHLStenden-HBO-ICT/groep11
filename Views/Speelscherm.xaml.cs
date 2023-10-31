@@ -56,6 +56,7 @@ namespace Game_Interaction.Views
         private int powerUpTimeInTicks = 200; //50 ticks is 1 seconde
         private int healthPowerUp = 100;
         private int damageIncreasePowerUp = 30;
+        private int ticksBetweenPowerUpSpawns = 1000; // Randomized; gemiddeld 1000 ticks
         public List<string> powerUps = new List<string>
                 {
                     "HealthBoost",
@@ -188,6 +189,16 @@ namespace Game_Interaction.Views
             {
                 EndGame("Player 1");
             }
+
+            // Logica voor random PowerUp Spawn
+            int goalNumber = 500;
+            int randomNumber = random.Next(0, ticksBetweenPowerUpSpawns);
+            if (randomNumber == goalNumber) 
+            {
+                SpawnPowerUp(powerUps, GameCanvas);
+            }
+
+
 
             // Check of een speler een power up heeft, zo ja elke tick + 1 doen.
             if (hasPowerUpPlayer1) 

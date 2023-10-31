@@ -34,6 +34,11 @@ namespace Game_Interaction.Views
         private int ticksBetweenShotsPlayer1 = 30;
         private int damagePlayer1 = 50;
         private int hitpointsPlayer1 = 500;
+        
+        // Player1 Powerups
+        private bool hasPowerUpPlayer1 = false;
+        private int powerUpTimerPlayer1 = 0;
+        private string currentPowerUpPlayer1 = "nothing";
 
         // Player2 Stats
         private int movementSpeedPlayer2 = 10;
@@ -41,15 +46,22 @@ namespace Game_Interaction.Views
         private int ticksBetweenShotsPlayer2 = 30;
         private int damagePlayer2 = 50;
         private int hitpointsPlayer2 = 500;
+        
+        // Player2 Powerups
+        private bool hasPowerUpPlayer2 = false;
+        private int powerUpTimerPlayer2 = 0;
+        private string currentPowerUpPlayer2 = "nothing";
 
         // Powerups
-        public List<string> powerUps = new List<string>
-        {
-            "HealthBoost",
-            "DamageIncrease",
-            "Shield"
-        };
+        private int powerUpTimeInTicks = 200; //50 ticks is 1 seconde
         private int healthPowerUp = 100;
+        private int damageIncreasePowerUp = 30;
+        public List<string> powerUps = new List<string>
+                {
+                    "HealthBoost",
+                    "DamageIncrease",
+                    "Shield"
+                };
 
         // Logica om ticksBetweenShots te laten werken
         private int shootCounter1 = 0;
@@ -84,14 +96,14 @@ namespace Game_Interaction.Views
                         // Laat bullet bewegen
                         Rect bulletRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + bulletSpeedPlayer1);
-                        
+
                         // Logica om te kijken of Projectile van player 1, player 2 hit
                         Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
                         if (bulletRect.IntersectsWith(player2Rect))
                         {
                             hitpointsPlayer2 -= damagePlayer1;
                             Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
-                            itemsToRemove.Add(x); 
+                            itemsToRemove.Add(x);
                         }
 
                     }
@@ -112,12 +124,12 @@ namespace Game_Interaction.Views
                         }
                     }
 
-                    // Kijken of player 1 zijn Healthboost oppakt
+                    // Code voor healthboosts
                     if (x.Tag.ToString() == "HealthBoostPlayer1")
                     {
                         Rect player1Rect = new Rect(Canvas.GetLeft(Player1), Canvas.GetTop(Player1), Player1.Width, Player1.Height);
                         Rect healthPowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                        if(healthPowerUpRect.IntersectsWith(player1Rect))
+                        if (healthPowerUpRect.IntersectsWith(player1Rect))
                         {
                             hitpointsPlayer1 += healthPowerUp;
                             Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
@@ -125,7 +137,6 @@ namespace Game_Interaction.Views
                         }
                     }
 
-                    // Kijken of player 2 zijn Healthboost oppakt
                     if (x.Tag.ToString() == "HealthBoostPlayer2")
                     {
                         Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
@@ -134,6 +145,21 @@ namespace Game_Interaction.Views
                         {
                             hitpointsPlayer2 += healthPowerUp;
                             Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
+                            itemsToRemove.Add(x);
+                        }
+                    }
+
+                    // Code voor DamageInscrease PowerUp
+                    if (x.Tag.ToString() == "DamageIncreasePlayer1")
+                    {
+                        Rect player1Rect = new Rect(Canvas.GetLeft(Player1), Canvas.GetTop(Player1), Player1.Width, Player1.Height);
+                        Rect damageIncreasePowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                        if (damageIncreasePowerUpRect.IntersectsWith(player1Rect))
+                        {
+                            hasPowerUpPlayer1 = true;
+                            currentPowerUpPlayer1 = "DamageIncrease";
+                            damagePlayer1 += damageIncreasePowerUp;
+                            Player1Damage.Content = $"Player 1: {damagePlayer1} damage";
                             itemsToRemove.Add(x);
                         }
                     }
@@ -150,8 +176,29 @@ namespace Game_Interaction.Views
                 EndGame("Player 1");
             }
 
+            // Check of een speler een power up heeft, zo ja elke tick + 1 doen.
+            if (hasPowerUpPlayer1) 
+            {
+                powerUpTimerPlayer1++;
+            }
+            if (hasPowerUpPlayer2)
+            {
+                powerUpTimerPlayer2++;
+            }
+           
 
-
+            // Check of poweruptimer bij max tijd van powerup komt
+            if (powerUpTimerPlayer1 >= powerUpTimeInTicks)
+            {
+                hasPowerUpPlayer1 = false;
+                powerUpTimerPlayer1 = 0;
+                if (currentPowerUpPlayer1 == "DamageIncrease")
+                {
+                    damagePlayer1 -= damageIncreasePowerUp;
+                    Player1Damage.Content = $"Player 1: {damagePlayer1} damage";
+                    currentPowerUpPlayer1 = "nothing";
+                }
+            }
 
 
             // Verwijderen van de bullets in de list
@@ -238,9 +285,10 @@ namespace Game_Interaction.Views
             if (e.Key == Key.A) moveLeft1 = true;
             if (e.Key == Key.W) moveUp1 = true;
             if (e.Key == Key.S) moveDown1 = true;
+
             // Tijdelijk voor testen
             if (e.Key == Key.P) SpawnPowerUp(powerUps, GameCanvas);
-            
+
             // Controls voor Player2
             if (e.Key == Key.Right) moveRight2 = true;
             if (e.Key == Key.Left) moveLeft2 = true;
@@ -289,7 +337,7 @@ namespace Game_Interaction.Views
             gameCanvas.Children.Add(newProjectile);
         }
 
-        
+
         public void EndGame(string winnerName)
         {
             if (!gameIsOver)
@@ -310,9 +358,10 @@ namespace Game_Interaction.Views
 
         private void SpawnPowerUp(List<string> powerUps, Canvas gameCanvas)
         {
-            string powerUpPlayer1 = powerUps[0]; //random.Next(0, powerUps.Count)
+            string powerUpPlayer1 = powerUps[1]; //random.Next(0, powerUps.Count)
             string powerUpPlayer2 = powerUps[0];
 
+            // HealthBoost Powerup
             if (powerUpPlayer1 == "HealthBoost")
             {
                 Rectangle newPowerUp = new Rectangle
@@ -326,7 +375,7 @@ namespace Game_Interaction.Views
                 Canvas.SetTop(newPowerUp, random.Next(0, 1050));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 930));
                 gameCanvas.Children.Add(newPowerUp);
-                
+
             }
 
             if (powerUpPlayer2 == "HealthBoost")
@@ -343,6 +392,37 @@ namespace Game_Interaction.Views
                 Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
                 gameCanvas.Children.Add(newPowerUp);
 
+            }
+
+            // DamageIncrease Powerup
+            if (powerUpPlayer1 == "DamageIncrease")
+            {
+                Rectangle newPowerUp = new Rectangle
+                {
+                    Height = 30,
+                    Width = 30,
+                    Fill = Brushes.Gold,
+                    Stroke = Brushes.White,
+                    Tag = "DamageIncreasePlayer1"
+                };
+                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetLeft(newPowerUp, random.Next(0, 930));
+                gameCanvas.Children.Add(newPowerUp);
+            }
+
+            if (powerUpPlayer2 == "DamageIncrease")
+            {
+                Rectangle newPowerUp = new Rectangle
+                {
+                    Height = 30,
+                    Width = 30,
+                    Fill = Brushes.Gold,
+                    Stroke = Brushes.White,
+                    Tag = "DamageIncreasePlayer2"
+                };
+                Canvas.SetTop(newPowerUp, random.Next(0, 1050));
+                Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
+                gameCanvas.Children.Add(newPowerUp);
             }
         }
     }

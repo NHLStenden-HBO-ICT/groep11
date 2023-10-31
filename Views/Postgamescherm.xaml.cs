@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game_interaction.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,12 +27,16 @@ namespace Game_Interaction.Views
 
         private void HerstartKnop(object sender, RoutedEventArgs e) //Button om de game te herstarten
         {
-
+            Pregamescherm pre = new Pregamescherm();
+            pre.Show();
+            this.Close();
         }
 
         private void LeaderbordKnop(object sender, RoutedEventArgs e) //Button om naar de leaderbord te gaan
         {
-
+            // Leaderbordscherm lb = new Leaderbordscherm();
+            //lb.Show();
+            //this.Close();
         }
 
         private void HoofdmenuKnop(object sender, RoutedEventArgs e) //Button om terug te gaan naar het hoofdmenu

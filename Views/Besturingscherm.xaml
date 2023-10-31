@@ -8,7 +8,7 @@
         Title="Besturingscherm" Height="1080" Width="1920"
         WindowState = "Maximized"
         WindowStyle="SingleBorderWindow">
-        <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="421*"/>
@@ -18,13 +18,13 @@
         <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill" Grid.RowSpan="3" Margin="0,-26,0,0"/>
         <!--Esc terug naar hoofdmenu-->
         <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="19,19,0,0" VerticalAlignment="Top" Click="TerugNaarHoofdmenu" Width="50" Height="36" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="32"/>
-        <Label Content="Terug" HorizontalAlignment="Left" Margin="74,16,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="32" Height="54" Width="79"/>
+        <Label Content="Terug" HorizontalAlignment="Left" Margin="74,16,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="32" Height="54" Width="90"/>
         <!--Hoofdtext-->
-        <Label Background="#FF586C70" Margin="675,80,601,615" Grid.RowSpan="2"/>
-        <Label Content="Besturing voor tijdens &#xD;&#xA;             het spel" FontFamily="Squada one" FontSize="72" Margin="695,80,0,562" HorizontalAlignment="Left" Width="604" Grid.RowSpan="2" Foreground="White"/>
+        <Label Background="#FF586C70" Margin="638,80,525,521" Grid.RowSpan="2"/>
+        <Label Content="Besturing voor tijdens &#xD;&#xA;             het spel" FontFamily="Squada one" FontSize="72" Margin="660,23,0,390" HorizontalAlignment="Left" Width="735" Foreground="White" Grid.Row="1"/>
         <!--Uitleg hoe het spel gepauzeerd kan worden-->
-        <Label Background="#FF586C70" Margin="798,715,724,10" Grid.Row="1"/>
-        <Label Content="Esc" HorizontalAlignment="Left" Margin="824,735,0,0" VerticalAlignment="Top" Width="52" Height="41" Background="White" BorderThickness="1" BorderBrush="Black" FontFamily="Squada one" FontSize="32" Grid.Row="1"/>
-        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="881,736,0,0" FontSize="32" Height="44" HorizontalAlignment="Left" Grid.Row="1" Width="294"/>
-        </Grid>
+        <Label Background="#FF586C70" Margin="761,715,687,28" Grid.Row="1"/>
+        <Label Content="Esc" HorizontalAlignment="Left" Margin="783,739,0,0" VerticalAlignment="Top" Width="57" Height="41" Background="White" BorderThickness="1" BorderBrush="Black" FontFamily="Squada one" FontSize="32" Grid.Row="1"/>
+        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="845,740,0,0" FontSize="32" Height="44" HorizontalAlignment="Left" Grid.Row="1" Width="360"/>
+    </Grid>
 </Window>

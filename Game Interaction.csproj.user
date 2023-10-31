@@ -13,6 +13,9 @@
     <Compile Update="Views\Besturingscherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Postgamescherm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Speelscherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,10 +27,10 @@
     <Page Update="Views\Besturingscherm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pregamescherm.xaml">
+    <Page Update="Views\Postgamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Postgamescherm.xaml">
+    <Page Update="Views\Pregamescherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Speelscherm.xaml">

@@ -1,5 +1,4 @@
-﻿using Game_interaction.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +15,11 @@ using System.Windows.Shapes;
 namespace Game_Interaction.Views
 {
     /// <summary>
-    /// Interaction logic for PostGameScherm.xaml
+    /// Interaction logic for Postgamescherm.xaml
     /// </summary>
-    public partial class PostGameScherm : Window
+    public partial class Postgamescherm : Window
     {
-        public PostGameScherm()
+        public Postgamescherm()
         {
             InitializeComponent();
         }

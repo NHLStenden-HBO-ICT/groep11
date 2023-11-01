@@ -8,23 +8,31 @@
         Title="Besturingscherm" Height="1080" Width="1920"
         WindowState = "Maximized"
         WindowStyle="SingleBorderWindow">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="421*"/>
-            <RowDefinition Height="71*"/>
-        </Grid.RowDefinitions>
-        <!--Achtergrond-->
-        <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill" Grid.RowSpan="3" Margin="0,-26,0,0"/>
-        <!--Esc terug naar hoofdmenu-->
-        <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="19,19,0,0" VerticalAlignment="Top" Click="TerugNaarHoofdmenu" Width="50" Height="36" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="32"/>
-        <Label Content="Terug" HorizontalAlignment="Left" Margin="74,16,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="32" Height="54" Width="90"/>
-        <!--Hoofdtext-->
-        <Label Background="#FF586C70" Margin="638,80,525,521" Grid.RowSpan="2"/>
-        <Label Content="Besturing voor tijdens &#xD;&#xA;             het spel" FontFamily="Squada one" FontSize="72" Margin="660,23,0,390" HorizontalAlignment="Left" Width="735" Foreground="White" Grid.Row="1"/>
-        <!--Uitleg hoe het spel gepauzeerd kan worden-->
-        <Label Background="#FF586C70" Margin="761,715,687,28" Grid.Row="1"/>
-        <Label Content="Esc" HorizontalAlignment="Left" Margin="783,739,0,0" VerticalAlignment="Top" Width="57" Height="41" Background="White" BorderThickness="1" BorderBrush="Black" FontFamily="Squada one" FontSize="32" Grid.Row="1"/>
-        <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="845,740,0,0" FontSize="32" Height="44" HorizontalAlignment="Left" Grid.Row="1" Width="360"/>
-    </Grid>
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1820">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.4*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.4*"/>
+            </Grid.ColumnDefinitions>
+            <!--Achtergrond-->
+            <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill" Grid.RowSpan="2" Margin="-73,0,-26,0" Grid.ColumnSpan="3"/>
+            <!--Esc terug naar hoofdmenu-->
+            <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="-54,40,0,0" VerticalAlignment="Top" Click="TerugNaarHoofdmenu" Width="50" Height="36" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="32" RenderTransformOrigin="-0.516,0.855"/>
+            <Label Content="Terug" HorizontalAlignment="Left" Margin="1,35,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="32" Height="47" Width="76" Foreground="Black" Background="Transparent"/>
+            <!--Hoofdtext-->
+            <Label Background="#FF586C70" Margin="64,67,64,795" Grid.Column="1"/>
+            <Label Content="Besturing voor tijdens &#xD;&#xA;             het spel" FontFamily="Squada one" FontSize="72" Margin="0,76,0,804" HorizontalAlignment="Center" Width="592" Foreground="White" Grid.Column="1"/>
+            <!--Uitleg hoe het spel gepauzeerd kan worden-->
+            <Label Background="#FF586C70" Margin="182,348,182,622" Grid.Column="1" BorderBrush="Black" BorderThickness="2"/>
+            <Label Content="Esc" HorizontalAlignment="Left" Margin="202,369,0,0" VerticalAlignment="Top" Width="57" Height="41" Background="White" BorderThickness="1" BorderBrush="Black" FontFamily="Squada one" FontSize="32" Grid.Column="1"/>
+            <Label Content="Om het spel te pauzeren" FontFamily="Squada one" VerticalAlignment="Top" Margin="264,367,0,0" FontSize="32" Height="44" HorizontalAlignment="Left" Width="288" Grid.Column="1"/>
+            <!--Uitleg wat het doel van het spel is-->
+            <Label Background="#FF6D92AC" Grid.Column="1" Margin="10,521,10,186" BorderBrush="Black" BorderThickness="2"/>
+            <Label Background="Transparent" Margin="10,600,10,326" Grid.Column="1" RenderTransformOrigin="0.5,0.5" BorderBrush="Black" BorderThickness="2"/>
+            <Label Content="Doel van het spel" Grid.Column="1" Margin="238,537,238,443" FontFamily="Squada one" FontSize="42" Foreground="White"/>
+            <Label Content="Het doel van het spel is om de andere speler uit te schakelen. &#xD;&#xA;Dit doe je door gewichten op de tegenstander te gooien. &#xD;&#xA;Zodra de levens van je tegenstander op 0 staan, heb je gewonnen." Grid.Column="1" Margin="24,615,24,345" FontFamily="Squada one" FontSize="26"/>
+            <Label Content="Tijdens het spel zullen er powerups spawnen. &#xD;&#xA;Er zijn verschillende powerups. &#xD;&#xA;De ene zal je extra levens geven.&#xD;&#xA;Met de andere zal je meer schade aan je tegenstander doen." Grid.Column="1" Margin="24,731,24,178" FontFamily="Squada one" FontSize="26"/>
+        </Grid>
+    </Viewbox>
 </Window>

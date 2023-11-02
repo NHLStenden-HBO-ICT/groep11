@@ -17,14 +17,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.7*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.7*"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" Background="#6d92ac" BorderThickness="2" CornerRadius="20,20,20,20">
@@ -48,7 +48,8 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Left" FontSize="80" FontFamily="Squada one" Margin="164,-7,0,7">Gymwars</TextBlock>
+                <!-- <TextBlock Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" FontSize="80" FontFamily="Squada one">Gymwars</TextBlock>-->
+                <Image Source="pack://application:,,,/Image/Gymwars.png" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center"></Image>
                 <!-- <TextBox Grid.Row="3" Margin="10" Background="#586c70">Naam speler 1</TextBox> -->
 
                 <Button x:Name="StartKnop" Grid.ColumnSpan="2" Grid.Row="5" Margin="100,10,100,10" Background="#586c70" FontFamily="Squada one" Foreground="black" FontSize="20" BorderBrush="Black" BorderThickness="1" Click="StartKnop_Click">Start
@@ -73,9 +74,9 @@
                     <StackPanel>
                         <Label HorizontalAlignment="Center" FontFamily="Squada one" FontSize="20">Gegevens speler 1</Label>
                         <Label FontFamily="Squada one" FontSize="20">Naam (verplicht):</Label>
-                        <TextBox x:Name="NaamSpeler1" Margin="2,0,2,5" BorderBrush="black">sander vd werff</TextBox>
+                        <TextBox x:Name="NaamSpeler1" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">E-mail (verplicht):</Label>
-                        <TextBox x:Name="E_mailSpeler1" Margin="2,0,2,5" BorderBrush="black">sander-werff1@hotmail.com</TextBox>
+                        <TextBox x:Name="E_mailSpeler1" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Leeftijd:</Label>
                         <ComboBox x:Name="LeeftijdSpeler1" Margin="2,0,2,5" BorderBrush="black"></ComboBox>
                         <Label FontFamily="Squada one" FontSize="20">Postcode:</Label>
@@ -92,9 +93,9 @@
                     <StackPanel>
                         <Label HorizontalAlignment="Center" FontFamily="Squada one" FontSize="20">Gegevens speler 2</Label>
                         <Label FontFamily="Squada one" FontSize="20">Naam (verplicht):</Label>
-                        <TextBox x:Name="NaamSpeler2" Margin="2,0,2,5" BorderBrush="black">sander</TextBox>
+                        <TextBox x:Name="NaamSpeler2" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">E-mail (verplicht):</Label>
-                        <TextBox x:Name="E_mailSpeler2" Margin="2,0,2,5" BorderBrush="black">sander-werff@hotmail.com</TextBox>
+                        <TextBox x:Name="E_mailSpeler2" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Leeftijd:</Label>
                         <ComboBox x:Name="LeeftijdSpeler2" Margin="2,0,2,5" BorderBrush="black"></ComboBox>
                         <Label FontFamily="Squada one" FontSize="20">Postcode:</Label>

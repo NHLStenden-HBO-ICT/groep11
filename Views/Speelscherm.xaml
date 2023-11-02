@@ -9,7 +9,7 @@
         WindowStyle="None"
         Topmost="true"
         ResizeMode="NoResize"
-        Title="Speelscherm" Height="1080" Width="1920">
+        Title="Speelscherm" Height="900" Width="1540">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
@@ -27,12 +27,14 @@
                 KeyDown="OnKeyDown"
                 KeyUp="OnKeyUp"
                 Grid.Row="1"
-                Grid.ColumnSpan="4">
+                Grid.ColumnSpan="4"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
             <Rectangle x:Name="Player1"
-                Height="150"
-                Width="150"
-                Canvas.Left="55"
-                Canvas.Top="395">
+                Height="100"
+                Width="100"
+                Canvas.Left="10"
+                Canvas.Top="325">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="pack://application:,,,/Image/character1.png">
                         <ImageBrush.RelativeTransform>
@@ -42,10 +44,10 @@
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle x:Name="Player2"
-                Height="150"
-                Width="150"
-                Canvas.Left="1720"
-                Canvas.Top="395">
+                Height="100"
+                Width="100"
+                Canvas.Left="1390"
+                Canvas.Top="325">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="pack://application:,,,/Image/character2.png">
                         <ImageBrush.RelativeTransform>
@@ -59,10 +61,11 @@
                 Width="5"
                 Fill="Gray"
                 Canvas.Top="0"
-                Canvas.Left="960"/>
+                Canvas.Left="768"/>
         </Canvas>
         <Label Name="Player1HitPoints" HorizontalAlignment="Left" Margin="165,44,0,0" VerticalAlignment="Top" Content="Player 1: 500 HP"/>
         <Label Name="Player2HitPoints" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" Content="Player 2: 500 HP" Grid.Column="3"/>
+        <Label Name="Player2position" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Content="Test" Grid.Column="3"/>
         <Label x:Name="Player1Damage" HorizontalAlignment="Left" Margin="165,75,0,0" VerticalAlignment="Top" Content="Player 1: 50 damage"/>
         <Label x:Name="Player2Damage" HorizontalAlignment="Left" Margin="295,77,0,0" VerticalAlignment="Top" Content="Player 2: 50 damage" Grid.Column="3"/>
     </Grid>

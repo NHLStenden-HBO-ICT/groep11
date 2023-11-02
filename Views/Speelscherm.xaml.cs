@@ -324,7 +324,7 @@ namespace Game_Interaction.Views
             if (moveRight1)
             {
                 newLeft1 = Canvas.GetLeft(Player1) + movementSpeedPlayer1;
-                if (newLeft1 <= 960 - Player1.Width) // Zorg ervoor dat Player1 niet verder gaat dan de middenlijn
+                if (newLeft1 <= 772 - Player1.Width) // Zorg ervoor dat Player1 niet verder gaat dan de middenlijn
                     Canvas.SetLeft(Player1, newLeft1);
             }
             if (moveLeft1)
@@ -356,7 +356,7 @@ namespace Game_Interaction.Views
             if (moveLeft2)
             {
                 newLeft2 = Canvas.GetLeft(Player2) - movementSpeedPlayer2;
-                if (newLeft2 >= 960) // Zorg ervoor dat Player2 niet verder gaat dan de middenlijn aan de linkerkant
+                if (newLeft2 >= 768) // Zorg ervoor dat Player2 niet verder gaat dan de middenlijn aan de linkerkant
                     Canvas.SetLeft(Player2, newLeft2);
             }
             if (moveUp2)
@@ -389,7 +389,12 @@ namespace Game_Interaction.Views
             // Controls voor Player2
             if (e.Key == Key.Right) moveRight2 = true;
             if (e.Key == Key.Left) moveLeft2 = true;
-            if (e.Key == Key.Up) moveUp2 = true;
+            if (e.Key == Key.Up)
+            {
+                moveUp2 = true;
+                Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
+                Player2position.Content = $"Player 2 position: {player2Rect.Top}, {player2Rect.Left}";
+            }
             if (e.Key == Key.Down) moveDown2 = true;
         }
 
@@ -478,8 +483,8 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(0, 930));
+                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetLeft(newPowerUp, random.Next(0, 725));
                 gameCanvas.Children.Add(newPowerUp);
 
             }
@@ -497,8 +502,8 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
+                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetLeft(newPowerUp, random.Next(775, 1490));
                 gameCanvas.Children.Add(newPowerUp);
 
             }
@@ -517,8 +522,8 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(0, 900));
+                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetLeft(newPowerUp, random.Next(0, 725));
                 gameCanvas.Children.Add(newPowerUp);
             }
 
@@ -535,8 +540,8 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(960, 1870));
+                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetLeft(newPowerUp, random.Next(775, 1490));
                 gameCanvas.Children.Add(newPowerUp);
             }
         }

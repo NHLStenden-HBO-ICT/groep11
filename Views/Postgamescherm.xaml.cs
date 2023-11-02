@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,15 +21,18 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class Postgamescherm : Window
     {
-        public Postgamescherm()
+        private Dictionary<string, object> spelerData1;
+        public Postgamescherm(Dictionary<string, object> spelerData, string winnaar)
         {
             InitializeComponent();
+            spelerData1 = spelerData;
+            SpelerWin.Content = winnaar + " heeft gewonnen!";
         }
 
         private void HerstartKnop(object sender, RoutedEventArgs e) //Button om de game te herstarten
         {
-            Pregamescherm pre = new Pregamescherm();
-            pre.Show();
+            Speelscherm speelscherm = new Speelscherm(spelerData1);
+            speelscherm.Show();
             this.Close();
         }
 
@@ -50,13 +54,5 @@ namespace Game_Interaction.Views
         {
             Application.Current.Shutdown();
         }
-
-        private void PlayerNames()
-        {
-            Dictionary<string, string> infoPlayers = new Dictionary<string, string>();
-            infoPlayers.Add(Console.ReadLine(), Console.ReadLine()); 
-            infoPlayers.Add(Console.ReadLine(), Console.ReadLine());
-        }
-
     }
 }

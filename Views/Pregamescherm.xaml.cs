@@ -211,5 +211,6 @@ namespace Game_interaction.Views
             beginScherm.Show();
             this.Close();
         }
+        
     }
 }

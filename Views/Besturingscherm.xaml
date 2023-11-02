@@ -16,7 +16,7 @@
                 <ColumnDefinition Width="1.4*"/>
             </Grid.ColumnDefinitions>
             <!--Achtergrond-->
-            <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill" Grid.RowSpan="2" Margin="-73,0,-26,0" Grid.ColumnSpan="3"/>
+            <Image x:Name="Achtergrond" Source="/Image/Bs.PNG" Stretch="Fill" Margin="-73,0,-39,0" Grid.ColumnSpan="3"/>
             <!--Esc terug naar hoofdmenu-->
             <Button x:Name="Button" Content="Esc" HorizontalAlignment="Left" Margin="-54,40,0,0" VerticalAlignment="Top" Click="TerugNaarHoofdmenu" Width="50" Height="36" Background="White" BorderBrush="Black" FontFamily="Squada one" FontSize="32" RenderTransformOrigin="-0.516,0.855"/>
             <Label Content="Terug" HorizontalAlignment="Left" Margin="1,35,0,0" VerticalAlignment="Top" FontFamily="Squada one" FontSize="32" Height="47" Width="76" Foreground="Black" Background="Transparent"/>

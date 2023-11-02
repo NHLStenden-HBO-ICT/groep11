@@ -38,7 +38,7 @@ namespace Game_Interaction.Views
         
         // Player1 Powerups
         private bool hasPowerUpPlayer1 = false;
-        private int powerUpTimerPlayer1 = 0;
+        private int powerUpTimerPlayer1 = 200;
         private string currentPowerUpPlayer1 = "nothing";
         private int powerUpTimeOnScreenPlayer1 = 0;
 
@@ -51,7 +51,7 @@ namespace Game_Interaction.Views
         
         // Player2 Powerups
         private bool hasPowerUpPlayer2 = false;
-        private int powerUpTimerPlayer2 = 0;
+        private int powerUpTimerPlayer2 = 200;
         private string currentPowerUpPlayer2 = "nothing";
         private int powerUpTimeOnScreenPlayer2 = 0;
 
@@ -71,11 +71,13 @@ namespace Game_Interaction.Views
         private int shootCounter1 = 0;
         private int shootCounter2 = 0;
 
+        private Dictionary<string, object> spelerData1;
 
-
-        public Speelscherm()
+        public Speelscherm(Dictionary<string, object> spelerData)
         {
             InitializeComponent();
+            spelerData1 = spelerData;
+            Player1Name.Content = spelerData["naamSpeler1"];
 
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Tick += GameEngine;
@@ -228,11 +230,11 @@ namespace Game_Interaction.Views
             // Checken of een speler dood is 
             if (hitpointsPlayer1 <= 0)
             {
-                EndGame("Player 2");
+                EndGame();
             }
             if (hitpointsPlayer2 <= 0)
             {
-                EndGame("Player 1");
+                EndGame();
             }
 
             // Logica voor random PowerUp Spawn
@@ -270,33 +272,35 @@ namespace Game_Interaction.Views
             // Check of een speler een power up heeft, zo ja elke tick + 1 doen.
             if (hasPowerUpPlayer1) 
             {
-                powerUpTimerPlayer1++;
+                powerUpTimerPlayer1--;
+                powerUpTimer1.Value = powerUpTimerPlayer1 / 2;
             }
             if (hasPowerUpPlayer2)
             {
-                powerUpTimerPlayer2++;
+                powerUpTimerPlayer2--;
+                powerUpTimer2.Value = powerUpTimerPlayer2 / 2;
             }
            
 
             // Check of poweruptimer bij max tijd van powerup komt
-            if (powerUpTimerPlayer1 >= powerUpDurationInTicks)
+            if (powerUpTimerPlayer1 <= 0)
             {
                 hasPowerUpPlayer1 = false;
-                powerUpTimerPlayer1 = 0;
+                powerUpTimerPlayer1 = 200;
                 if (currentPowerUpPlayer1 == "DamageIncrease")
                 {
-                    damagePlayer1 -= damageIncreasePowerUp;
+                    damagePlayer1 = 50;
                     currentPowerUpPlayer1 = "nothing";
                 }
             }
 
-            if (powerUpTimerPlayer2 >= powerUpDurationInTicks)
+            if (powerUpTimerPlayer2 <= 0)
             {
                 hasPowerUpPlayer2 = false;
-                powerUpTimerPlayer2 = 0;
+                powerUpTimerPlayer2 = 200;
                 if (currentPowerUpPlayer2 == "DamageIncrease")
                 {
-                    damagePlayer2 -= damageIncreasePowerUp;
+                    damagePlayer2 = 50;
                     currentPowerUpPlayer2 = "nothing";
                 }
             }
@@ -449,20 +453,20 @@ namespace Game_Interaction.Views
         }
 
 
-        public void EndGame(string winnerName)
+        public void EndGame()
         {
             if (!gameIsOver)
             {
                 gameIsOver = true;
-                NavigateToPostgamescherm(winnerName);
+                NavigateToPostgamescherm();
             }
         }
 
 
-        private void NavigateToPostgamescherm(string winnerName)
+        private void NavigateToPostgamescherm()
         {
-            // Postgamescherm postGameScherm = new Postgamescherm(winnerName);
-            // postGameScherm.Show();
+            Postgamescherm postGameScherm = new Postgamescherm();
+            postGameScherm.Show();
             this.Close();
         }
 

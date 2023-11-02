@@ -121,7 +121,7 @@ namespace Game_interaction.Views
             };
 
 
-            Speelscherm speelScherm = new Speelscherm();
+            Speelscherm speelScherm = new Speelscherm(spelerData);
             speelScherm.Show();
             this.Close();
 

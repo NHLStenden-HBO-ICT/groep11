@@ -205,6 +205,11 @@ namespace Game_interaction.Views
             }
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BeginScherm beginScherm = new BeginScherm();
+            beginScherm.Show();
+            this.Close();
+        }
     }
 }

@@ -61,7 +61,7 @@
                     </Button.Effect>
 
                 </Button>
-                <Button Grid.ColumnSpan="2" Grid.Row="6" Margin="100,10,100,10" Background="#586c70" FontFamily="Squada one" Foreground="black" FontSize="20" BorderBrush="Black" BorderThickness="1">Terug
+                <Button Grid.ColumnSpan="2" Grid.Row="6" Margin="100,10,100,10" Background="#586c70" FontFamily="Squada one" Foreground="black" FontSize="20" BorderBrush="Black" BorderThickness="1" Click="Button_Click">Terug
                     <Button.Effect>
                         <DropShadowEffect Color="Black" 
                           Opacity="0.5" 

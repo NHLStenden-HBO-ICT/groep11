@@ -36,6 +36,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Image\Arm.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Hearth.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Kettlebell4kgPl2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Kettlebell4kgPl1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\character2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\character1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Background.png" />
   </ItemGroup>
 

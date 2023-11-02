@@ -39,6 +39,7 @@ namespace Game_Interaction.Views
         private bool hasPowerUpPlayer1 = false;
         private int powerUpTimerPlayer1 = 0;
         private string currentPowerUpPlayer1 = "nothing";
+        private int powerUpTimeOnScreenPlayer1 = 0;
 
         // Player2 Stats
         private int movementSpeedPlayer2 = 10;
@@ -51,12 +52,14 @@ namespace Game_Interaction.Views
         private bool hasPowerUpPlayer2 = false;
         private int powerUpTimerPlayer2 = 0;
         private string currentPowerUpPlayer2 = "nothing";
+        private int powerUpTimeOnScreenPlayer2 = 0;
 
         // Powerups
-        private int powerUpDurationInTicks = 200; //50 ticks is 1 seconde
+        private int powerUpDurationInTicks = 200; // 50 ticks is 1 seconde
         private int healthPowerUp = 100;
         private int damageIncreasePowerUp = 30;
-        private int ticksBetweenPowerUpSpawns = 1000; // Randomized; gemiddeld 1000 ticks
+        private int ticksBetweenPowerUpSpawns = 100; // Randomized; gemiddeld 1000 ticks
+        private int timeToDisappearInTicks = 750;
         public List<string> powerUps = new List<string>
                 {
                     "HealthBoost",
@@ -135,6 +138,15 @@ namespace Game_Interaction.Views
                             Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
                             itemsToRemove.Add(x);
                         }
+                        else if (powerUpTimeOnScreenPlayer1 >= timeToDisappearInTicks)
+                        {
+                            itemsToRemove.Add(x);
+                            powerUpTimeOnScreenPlayer1 = 0;
+                        }
+                        else
+                        {
+                            powerUpTimeOnScreenPlayer1++;
+                        }
                     }
 
                     if (x.Tag.ToString() == "HealthBoostPlayer2")
@@ -147,9 +159,18 @@ namespace Game_Interaction.Views
                             Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
                             itemsToRemove.Add(x);
                         }
+                        else if (powerUpTimeOnScreenPlayer2 >= timeToDisappearInTicks)
+                        {
+                            itemsToRemove.Add(x);
+                            powerUpTimeOnScreenPlayer2 = 0;
+                        }
+                        else
+                        {
+                            powerUpTimeOnScreenPlayer2++;
+                        }
                     }
 
-                    // Code voor DamageInscrease PowerUp
+                    // Code voor DamageIncrease PowerUp
                     if (x.Tag.ToString() == "DamageIncreasePlayer1")
                     {
                         Rect player1Rect = new Rect(Canvas.GetLeft(Player1), Canvas.GetTop(Player1), Player1.Width, Player1.Height);
@@ -161,6 +182,15 @@ namespace Game_Interaction.Views
                             damagePlayer1 += damageIncreasePowerUp;
                             Player1Damage.Content = $"Player 1: {damagePlayer1} damage";
                             itemsToRemove.Add(x);
+                        }
+                        else if (powerUpTimeOnScreenPlayer1 >= timeToDisappearInTicks)
+                        {
+                            itemsToRemove.Add(x);
+                            powerUpTimeOnScreenPlayer1 = 0;
+                        }
+                        else
+                        {
+                            powerUpTimeOnScreenPlayer1++;
                         }
                     }
 
@@ -175,6 +205,15 @@ namespace Game_Interaction.Views
                             damagePlayer2 += damageIncreasePowerUp;
                             Player2Damage.Content = $"Player 2: {damagePlayer2} damage";
                             itemsToRemove.Add(x);
+                        }
+                        else if (powerUpTimeOnScreenPlayer2 >= timeToDisappearInTicks)
+                        {
+                            itemsToRemove.Add(x);
+                            powerUpTimeOnScreenPlayer2 = 0;
+                        }
+                        else
+                        {
+                            powerUpTimeOnScreenPlayer2++;
                         }
                     }
                 }
@@ -191,14 +230,36 @@ namespace Game_Interaction.Views
             }
 
             // Logica voor random PowerUp Spawn
-            int goalNumber = 500;
+            int goalNumber = 5;
             int randomNumber = random.Next(0, ticksBetweenPowerUpSpawns);
-            if (randomNumber == goalNumber) 
+            bool powerUpsOnscreen = false;
+            if (randomNumber == goalNumber)
             {
-                SpawnPowerUp(powerUps, GameCanvas);
+                var rectangles = GameCanvas.Children.OfType<Rectangle>().ToList();
+
+                foreach (var x in rectangles)
+                {
+                    if (x.Tag != null) // Idk waarom maar soms crashte de game omdat tag null was, dit fixte t
+                    {
+                        if (x.Tag.ToString() == "DamageIncreasePlayer2" || x.Tag.ToString() == "DamageIncreasePlayer1" || x.Tag.ToString() == "HealthBoostPlayer2" || x.Tag.ToString() == "HealthBoostPlayer1")
+                        {
+                            powerUpsOnscreen = true;
+                            break;
+                        }
+                        else
+                        {
+                            powerUpsOnscreen = false;
+                        }
+                        if (!powerUpsOnscreen)
+                        {
+                            SpawnPowerUp(powerUps, GameCanvas);
+                            powerUpsOnscreen = true;
+                            break;
+                        }
+                    }
+                }
+
             }
-
-
 
             // Check of een speler een power up heeft, zo ja elke tick + 1 doen.
             if (hasPowerUpPlayer1) 
@@ -351,20 +412,26 @@ namespace Game_Interaction.Views
         {
             Rectangle newProjectile = new Rectangle
             {
-                Height = 20,
-                Width = 20,
-                Fill = Brushes.White,
-                Stroke = Brushes.Red
+                Height = 50,
+                Width = 50,
             };
 
+            
             if (playerName == "Player1")
             {
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Kettlebell4kgPl1.png", UriKind.Absolute));
+                newProjectile.Fill = imageBrush;
                 Canvas.SetTop(newProjectile, Canvas.GetTop(player) + player.Height - newProjectile.Height); // dit zodat het lijkt alsof er met rechts gegooid wordt
                 Canvas.SetLeft(newProjectile, Canvas.GetLeft(player) + player.Width);
                 newProjectile.Tag = "ProjectileRight";  // beweegt naar rechts
+
             }
             else if (playerName == "Player2")
             {
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Kettlebell4kgPl2.png", UriKind.Absolute));
+                newProjectile.Fill = imageBrush;
                 Canvas.SetTop(newProjectile, Canvas.GetTop(player));
                 Canvas.SetLeft(newProjectile, Canvas.GetLeft(player) - newProjectile.Width);
                 newProjectile.Tag = "ProjectileLeft";   // beweegt naar links
@@ -402,12 +469,15 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Red,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "HealthBoostPlayer1"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 930));
                 gameCanvas.Children.Add(newPowerUp);
@@ -418,12 +488,15 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Red,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "HealthBoostPlayer2"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
                 Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
                 gameCanvas.Children.Add(newPowerUp);
@@ -435,14 +508,17 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Gold,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "DamageIncreasePlayer1"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(0, 930));
+                Canvas.SetLeft(newPowerUp, random.Next(0, 900));
                 gameCanvas.Children.Add(newPowerUp);
             }
 
@@ -450,14 +526,17 @@ namespace Game_Interaction.Views
             {
                 Rectangle newPowerUp = new Rectangle
                 {
-                    Height = 30,
-                    Width = 30,
-                    Fill = Brushes.Gold,
-                    Stroke = Brushes.White,
+                    Height = 50,
+                    Width = 50,
                     Tag = "DamageIncreasePlayer2"
                 };
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
+                newPowerUp.Fill = imageBrush;
+
                 Canvas.SetTop(newPowerUp, random.Next(0, 880));
-                Canvas.SetLeft(newPowerUp, random.Next(960, 1890));
+                Canvas.SetLeft(newPowerUp, random.Next(960, 1870));
                 gameCanvas.Children.Add(newPowerUp);
             }
         }

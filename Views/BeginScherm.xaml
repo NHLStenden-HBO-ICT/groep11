@@ -13,7 +13,8 @@
     <Window.Background>
         <ImageBrush ImageSource="pack://application:,,,/Images/Background.png"/>
     </Window.Background>
-
+	
+	
     <Grid>
         <!--<Label Content="GymWars"  Foreground="Black" FontFamily="regular 400" FontSize="75" HorizontalAlignment="Center" Background="Transparent" Margin="200,10,200,909"/> -->
         <Label Background="#FF586c70" Margin="1213,77,468,869"/>
@@ -22,17 +23,26 @@
        
 
         <!--Dit is het scherm aan de binnen kant-->
-        <Grid Background="#FF586c70" Margin="400,200,400,200">
+        <Grid Background="Transparent" Margin="400,200,400,200">
             <StackPanel Background="Transparent" HorizontalAlignment="Left" >
-                <Button Content="Start" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,100,0,0" BorderThickness="1"/>
-                <Button Content="Instellingen" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
+                <Button Content="Start" Foreground="Black" Click="StartClick" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,100,0,0" BorderThickness="1"/>
+                <Button Content="Besturing" Foreground="Black" Click="BClick"  HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Button Content="Leaderboard" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Button Content="Afsluiten" Click="QuitClick" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Image Source="pack://application:,,,/Image/LogoSportschool.png" Height="152" Width="434" Margin="0,75,0,0"/>
             </StackPanel>
-            <!-- linkerkant van het scherm -->
-            <StackPanel Background="Black" Margin="710,0,0,0">
-                <Label Content="Leaderbord" FontSize="50" Foreground="Wheat" HorizontalAlignment="Center" BorderBrush="Azure" BorderThickness="1" />
+            <!-- rechterkant van het scherm -->
+            <StackPanel Background="#586c70" Margin="710,0,0,0">
+                <Label Content="Leaderbord" FontSize="50" Foreground="Wheat" HorizontalAlignment="Center" BorderBrush="Azure" BorderThickness="0"/>
+				
+				<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+					<TextBlock Text="Sander" Foreground="AntiqueWhite" FontSize="50"> </TextBlock>
+					<TextBlock Text="Sander" Foreground="AntiqueWhite" FontSize="50"></TextBlock>
+					<TextBlock Text="Sander" Foreground="AntiqueWhite" FontSize="50"></TextBlock>
+					<TextBlock Text="Sander" Foreground="AntiqueWhite" FontSize="50"></TextBlock>
+					<TextBlock Text="Sander" Foreground="AntiqueWhite" FontSize="50"></TextBlock>
+				</StackPanel>
+				
             </StackPanel>
 
 

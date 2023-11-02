@@ -27,7 +27,7 @@
             <StackPanel Background="Transparent" HorizontalAlignment="Left" >
                 <Button Content="Start" Foreground="Black" Click="StartClick" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,100,0,0" BorderThickness="1"/>
                 <Button Content="Besturing" Foreground="Black" Click="BClick"  HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
-                <Button Content="Leaderboard" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
+                <Button Content="Leaderboard" Foreground="Black" Click="LeaderboardClick" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Button Content="Afsluiten" Click="QuitClick" Foreground="Black" HorizontalAlignment="Center" Height="50" Width="200" Margin="0,0,0,0" BorderThickness="1"/>
                 <Image Source="pack://application:,,,/Image/LogoSportschool.png" Height="152" Width="434" Margin="0,75,0,0"/>
             </StackPanel>

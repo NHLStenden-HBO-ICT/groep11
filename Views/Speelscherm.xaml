@@ -21,6 +21,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2.5*"/>
         </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="4" Grid.Row="0" Background="#586c70"></Border>
         <Canvas x:Name="GameCanvas"
                 Focusable="True"
                 Background="DarkGreen"
@@ -83,8 +84,8 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <ProgressBar Name="healthBar1" Width="300" Height="20" Minimum="0" Maximum="500"  Value="500" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" ValueChanged="healthbar1_ValueChanged"/>
-            <Label Name="Player1HitPoints" Grid.Row="1" Grid.Column="6" Content="500 HP" FontFamily="Squada One"></Label>
+            <ProgressBar Name="healthBar1" Width="300" Height="20" Minimum="0" Maximum="500"  Value="500" Foreground="red" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" ValueChanged="healthbar1_ValueChanged"/>
+            <Label Name="Player1HitPoints" Grid.Row="1" Grid.Column="6" Content="500 HP" Foreground="white" FontFamily="Squada One"></Label>
         </Grid>
         <Grid Name="HUDPlayer2" Grid.Row="0" Grid.Column="3">
             <Grid.RowDefinitions>
@@ -103,8 +104,8 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <ProgressBar Name="healthBar2" Width="300" Height="20" Minimum="0" Maximum="500"  Value="500" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" ValueChanged="healthbar1_ValueChanged"/>
-            <Label Name="Player2HitPoints" Grid.Row="1" Grid.Column="0" Content="500 HP" FontFamily="Squada One" HorizontalAlignment="Right" ></Label>
+            <ProgressBar Name="healthBar2" Width="300" Height="20" Minimum="0" Maximum="500" Foreground="red" Value="500" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" ValueChanged="healthbar1_ValueChanged"/>
+            <Label Name="Player2HitPoints" Grid.Row="1" Grid.Column="0" Content="500 HP" Foreground="white" FontFamily="Squada One" HorizontalAlignment="Right" ></Label>
         </Grid>
     </Grid>
 </Window>

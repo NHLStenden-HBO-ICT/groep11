@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,7 +106,7 @@ namespace Game_Interaction.Views
                         if (bulletRect.IntersectsWith(player2Rect))
                         {
                             hitpointsPlayer2 -= damagePlayer1;
-                            Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
+                            Player2HitPoints.Content = $"{hitpointsPlayer2} HP";
                             itemsToRemove.Add(x);
                         }
 
@@ -122,7 +123,7 @@ namespace Game_Interaction.Views
                         if (bulletRect.IntersectsWith(player1Rect))
                         {
                             hitpointsPlayer1 -= damagePlayer2;
-                            Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
+                            Player1HitPoints.Content = $"{hitpointsPlayer1} HP";
                             itemsToRemove.Add(x);
                         }
                     }
@@ -135,7 +136,7 @@ namespace Game_Interaction.Views
                         if (healthPowerUpRect.IntersectsWith(player1Rect))
                         {
                             hitpointsPlayer1 += healthPowerUp;
-                            Player1HitPoints.Content = $"Player 1: {hitpointsPlayer1} HP";
+                            Player1HitPoints.Content = $"{hitpointsPlayer1} HP";
                             itemsToRemove.Add(x);
                         }
                         else if (powerUpTimeOnScreenPlayer1 >= timeToDisappearInTicks)
@@ -156,7 +157,7 @@ namespace Game_Interaction.Views
                         if (healthPowerUpRect.IntersectsWith(player2Rect))
                         {
                             hitpointsPlayer2 += healthPowerUp;
-                            Player2HitPoints.Content = $"Player 2: {hitpointsPlayer2} HP";
+                            Player2HitPoints.Content = $"{hitpointsPlayer2} HP";
                             itemsToRemove.Add(x);
                         }
                         else if (powerUpTimeOnScreenPlayer2 >= timeToDisappearInTicks)
@@ -180,7 +181,6 @@ namespace Game_Interaction.Views
                             hasPowerUpPlayer1 = true;
                             currentPowerUpPlayer1 = "DamageIncrease";
                             damagePlayer1 += damageIncreasePowerUp;
-                            Player1Damage.Content = $"Player 1: {damagePlayer1} damage";
                             itemsToRemove.Add(x);
                         }
                         else if (powerUpTimeOnScreenPlayer1 >= timeToDisappearInTicks)
@@ -203,7 +203,6 @@ namespace Game_Interaction.Views
                             hasPowerUpPlayer2 = true;
                             currentPowerUpPlayer2 = "DamageIncrease";
                             damagePlayer2 += damageIncreasePowerUp;
-                            Player2Damage.Content = $"Player 2: {damagePlayer2} damage";
                             itemsToRemove.Add(x);
                         }
                         else if (powerUpTimeOnScreenPlayer2 >= timeToDisappearInTicks)
@@ -218,6 +217,13 @@ namespace Game_Interaction.Views
                     }
                 }
             }
+
+
+            // Update progress bars
+            healthBar1.Value = hitpointsPlayer1;
+            healthBar2.Value = hitpointsPlayer2;
+
+
 
             // Checken of een speler dood is 
             if (hitpointsPlayer1 <= 0)
@@ -280,7 +286,6 @@ namespace Game_Interaction.Views
                 if (currentPowerUpPlayer1 == "DamageIncrease")
                 {
                     damagePlayer1 -= damageIncreasePowerUp;
-                    Player1Damage.Content = $"Player 1: {damagePlayer1} damage";
                     currentPowerUpPlayer1 = "nothing";
                 }
             }
@@ -292,7 +297,6 @@ namespace Game_Interaction.Views
                 if (currentPowerUpPlayer2 == "DamageIncrease")
                 {
                     damagePlayer2 -= damageIncreasePowerUp;
-                    Player2Damage.Content = $"Player 2: {damagePlayer2} damage";
                     currentPowerUpPlayer2 = "nothing";
                 }
             }
@@ -374,6 +378,10 @@ namespace Game_Interaction.Views
 
         }
 
+        private void healthbar1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
 
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -389,12 +397,7 @@ namespace Game_Interaction.Views
             // Controls voor Player2
             if (e.Key == Key.Right) moveRight2 = true;
             if (e.Key == Key.Left) moveLeft2 = true;
-            if (e.Key == Key.Up)
-            {
-                moveUp2 = true;
-                Rect player2Rect = new Rect(Canvas.GetLeft(Player2), Canvas.GetTop(Player2), Player2.Width, Player2.Height);
-                Player2position.Content = $"Player 2 position: {player2Rect.Top}, {player2Rect.Left}";
-            }
+            if (e.Key == Key.Up) moveUp2 = true;
             if (e.Key == Key.Down) moveDown2 = true;
         }
 
@@ -483,7 +486,7 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetTop(newPowerUp, random.Next(0, 650));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 725));
                 gameCanvas.Children.Add(newPowerUp);
 
@@ -502,7 +505,7 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Hearth.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetTop(newPowerUp, random.Next(0, 650));
                 Canvas.SetLeft(newPowerUp, random.Next(775, 1490));
                 gameCanvas.Children.Add(newPowerUp);
 
@@ -522,7 +525,7 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetTop(newPowerUp, random.Next(0, 650));
                 Canvas.SetLeft(newPowerUp, random.Next(0, 725));
                 gameCanvas.Children.Add(newPowerUp);
             }
@@ -540,7 +543,7 @@ namespace Game_Interaction.Views
                 imageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Image/Arm.png", UriKind.Absolute));
                 newPowerUp.Fill = imageBrush;
 
-                Canvas.SetTop(newPowerUp, random.Next(0, 700));
+                Canvas.SetTop(newPowerUp, random.Next(0, 650));
                 Canvas.SetLeft(newPowerUp, random.Next(775, 1490));
                 gameCanvas.Children.Add(newPowerUp);
             }

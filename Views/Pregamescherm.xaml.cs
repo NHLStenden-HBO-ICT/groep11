@@ -29,6 +29,8 @@ namespace Game_interaction.Views
             InitializeComponent();
         }
 
+
+
         private void StartKnop_Click(object sender, RoutedEventArgs e)
         {
             // Haal de waarden uit de TextBoxes voor Speler 1
@@ -42,6 +44,86 @@ namespace Game_interaction.Views
             string emailSpeler2 = E_mailSpeler2.Text.Trim();
             int? leeftijdSpeler2 = LeeftijdSpeler2.SelectedItem as int?;
             string? postcodeSpeler2 = PostcodeSpeler2.Text.Trim();
+
+            // Controleer of gegevens speler 1 (correct) zijn ingevuld
+
+            // Naam speler 1
+            if (string.IsNullOrEmpty(naamSpeler1))
+            {
+                MessageBox.Show("Voer a.u.b. een naam in voor Speler 1.");
+                return;
+            }
+
+            // email speler 1
+            if (string.IsNullOrEmpty(emailSpeler1))
+            {
+                MessageBox.Show("Voer a.u.b. een e-mailadres in voor Speler 1.");
+                return;
+
+            }
+            else if (!Validations.IsEmailValid(emailSpeler1))
+            {
+                MessageBox.Show("Voer a.u.b. een geldig e-mailadres in voor Speler 1.");
+                return;
+            }
+
+            // Check of postcode is ingevuld, als dit zo is checken of het een geldige postcode is
+            if (!string.IsNullOrEmpty(postcodeSpeler1))
+            {
+                if (!Validations.IsNederlandsePostcode(postcodeSpeler1))
+                {
+                    MessageBox.Show("Voer a.u.b. een geldige Nederlandse postcode in voor speler 1.");
+                    return;
+                }
+            }
+
+
+            // Controleer of gegevens speler 2 (correct) zijn ingevuld
+
+            // Naam speler 2
+            if (string.IsNullOrEmpty(naamSpeler2))
+            {
+                MessageBox.Show("Voer a.u.b. een naam in voor Speler 2.");
+                return;
+            }
+
+            // E-mail speler 2
+            if (string.IsNullOrEmpty(emailSpeler2))
+            {
+                MessageBox.Show("Voer a.u.b. een e-mailadres in voor Speler 2.");
+                return;
+            }
+            else if (!Validations.IsEmailValid(emailSpeler2))
+            {
+                MessageBox.Show("Voer a.u.b. een geldig e-mailadres in voor Speler 2.");
+                return;
+            }
+
+            // Check of postcode is ingevuld, als dit zo is checken of het een geldige postcode is
+            if (!string.IsNullOrEmpty(postcodeSpeler2))
+            {
+                if (!Validations.IsNederlandsePostcode(postcodeSpeler2))
+                {
+                    MessageBox.Show("Voer a.u.b. een geldige Nederlandse postcode in voor speler 2.");
+                    return;
+                }
+            }
+
+
+
+            Dictionary<string, object> spelerData = new Dictionary<string, object>
+            {
+                {"naamSpeler1", NaamSpeler1.Text.Trim()},
+                {"emailSpeler1", E_mailSpeler1.Text.Trim()},
+                {"leeftijdSpeler1", LeeftijdSpeler1.SelectedItem},
+                {"postcodeSpeler1", PostcodeSpeler1.Text.Trim()},
+                {"naamSpeler2", NaamSpeler2.Text.Trim()},
+                {"emailSpeler2", E_mailSpeler2.Text.Trim()},
+                {"leeftijdSpeler2", LeeftijdSpeler2.SelectedItem},
+                {"postcodeSpeler2", PostcodeSpeler2.Text.Trim()}
+            };
+
+
 
             Speelscherm speelScherm = new Speelscherm();
             speelScherm.Show();

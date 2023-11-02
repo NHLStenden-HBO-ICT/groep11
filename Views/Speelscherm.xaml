@@ -30,10 +30,11 @@
                 Grid.ColumnSpan="4"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
+            <Image Stretch="Fill" Height="750" Width="1540" Source="pack://application:,,,/Image/speelveld.png"></Image>
             <Rectangle x:Name="Player1"
                 Height="100"
                 Width="100"
-                Canvas.Left="10"
+                Canvas.Left="140"
                 Canvas.Top="325">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="pack://application:,,,/Image/character1.png">
@@ -46,7 +47,7 @@
             <Rectangle x:Name="Player2"
                 Height="100"
                 Width="100"
-                Canvas.Left="1390"
+                Canvas.Left="1300"
                 Canvas.Top="325">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="pack://application:,,,/Image/character2.png">
@@ -59,9 +60,9 @@
             <Rectangle x:Name="MiddleLine"
                 Height="1080"
                 Width="5"
-                Fill="Gray"
+                Fill="Transparent"
                 Canvas.Top="0"
-                Canvas.Left="768"/>
+                Canvas.Left="773"/>
         </Canvas>
         <Label Name="Player1HitPoints" HorizontalAlignment="Left" Margin="165,44,0,0" VerticalAlignment="Top" Content="Player 1: 500 HP"/>
         <Label Name="Player2HitPoints" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" Content="Player 2: 500 HP" Grid.Column="3"/>

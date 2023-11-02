@@ -356,7 +356,7 @@ namespace Game_Interaction.Views
             if (moveLeft2)
             {
                 newLeft2 = Canvas.GetLeft(Player2) - movementSpeedPlayer2;
-                if (newLeft2 >= 768) // Zorg ervoor dat Player2 niet verder gaat dan de middenlijn aan de linkerkant
+                if (newLeft2 >= 774) // Zorg ervoor dat Player2 niet verder gaat dan de middenlijn aan de linkerkant
                     Canvas.SetLeft(Player2, newLeft2);
             }
             if (moveUp2)

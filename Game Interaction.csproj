@@ -36,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Image\speelveld.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Image\Arm.png" />
   </ItemGroup>
 

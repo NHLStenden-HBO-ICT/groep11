@@ -50,5 +50,13 @@ namespace Game_Interaction.Views
         {
             Application.Current.Shutdown();
         }
+
+        private void PlayerNames()
+        {
+            Dictionary<string, string> infoPlayers = new Dictionary<string, string>();
+            infoPlayers.Add(Console.ReadLine(), Console.ReadLine()); 
+            infoPlayers.Add(Console.ReadLine(), Console.ReadLine());
+        }
+
     }
 }

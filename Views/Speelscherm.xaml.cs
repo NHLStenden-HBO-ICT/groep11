@@ -80,7 +80,7 @@ namespace Game_Interaction.Views
             InitializeComponent();
             spelerData1 = spelerData;
             Player1Name.Content = spelerData["naamSpeler1"];
-            
+            Player2Name.Content = spelerData["naamSpeler2"];
 
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Tick += GameEngine;
@@ -140,7 +140,14 @@ namespace Game_Interaction.Views
                         Rect healthPowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                         if (healthPowerUpRect.IntersectsWith(player1Rect))
                         {
-                            hitpointsPlayer1 += healthPowerUp;
+                            if (hitpointsPlayer1 + healthPowerUp >= 500)
+                            {
+                                hitpointsPlayer1 = 500;
+                            }
+                            else
+                            {
+                                hitpointsPlayer1 += healthPowerUp;
+                            }
                             Player1HitPoints.Content = $"{hitpointsPlayer1} HP";
                             itemsToRemove.Add(x);
                         }
@@ -161,7 +168,14 @@ namespace Game_Interaction.Views
                         Rect healthPowerUpRect = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                         if (healthPowerUpRect.IntersectsWith(player2Rect))
                         {
-                            hitpointsPlayer2 += healthPowerUp;
+                            if (hitpointsPlayer2 + healthPowerUp >= 500)
+                            {
+                                hitpointsPlayer2 = 500;
+                            }
+                            else
+                            {
+                                hitpointsPlayer2 += healthPowerUp;
+                            }
                             Player2HitPoints.Content = $"{hitpointsPlayer2} HP";
                             itemsToRemove.Add(x);
                         }

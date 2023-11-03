@@ -74,7 +74,7 @@
                     <StackPanel>
                         <Label HorizontalAlignment="Center" FontFamily="Squada one" FontSize="20">Gegevens speler 1</Label>
                         <Label FontFamily="Squada one" FontSize="20">Naam (verplicht):</Label>
-                        <TextBox x:Name="NaamSpeler1" Margin="2,0,2,5" BorderBrush="black">s</TextBox>
+                        <TextBox x:Name="NaamSpeler1" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">E-mail (verplicht):</Label>
                         <TextBox x:Name="E_mailSpeler1" Margin="2,0,2,5" BorderBrush="black">s@s.nl</TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Leeftijd:</Label>
@@ -93,7 +93,7 @@
                     <StackPanel>
                         <Label HorizontalAlignment="Center" FontFamily="Squada one" FontSize="20">Gegevens speler 2</Label>
                         <Label FontFamily="Squada one" FontSize="20">Naam (verplicht):</Label>
-                        <TextBox x:Name="NaamSpeler2" Margin="2,0,2,5" BorderBrush="black">s</TextBox>
+                        <TextBox x:Name="NaamSpeler2" Margin="2,0,2,5" BorderBrush="black"></TextBox>
                         <Label FontFamily="Squada one" FontSize="20">E-mail (verplicht):</Label>
                         <TextBox x:Name="E_mailSpeler2" Margin="2,0,2,5" BorderBrush="black">s@s.nl</TextBox>
                         <Label FontFamily="Squada one" FontSize="20">Leeftijd:</Label>

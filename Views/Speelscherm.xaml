@@ -21,7 +21,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2.5*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.ColumnSpan="4" Grid.Row="0" Background="#586c70"></Border>
+        <Border Grid.ColumnSpan="4" Grid.Row="0" Background="#586c70" BorderBrush="White" BorderThickness="0,0,0,2" ></Border>
         <Canvas x:Name="GameCanvas"
                 Focusable="True"
                 Background="DarkGreen"
@@ -31,7 +31,7 @@
                 Grid.ColumnSpan="4"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-            <Image Stretch="Fill" Height="750" Width="1540" Source="pack://application:,,,/Image/speelveld.png"></Image>
+            <Image Stretch="Fill" Height="750" Width="1540" Source="pack://application:,,,/Image/speelveld2.png"></Image>
             <Rectangle x:Name="Player1"
                 Height="100"
                 Width="100"

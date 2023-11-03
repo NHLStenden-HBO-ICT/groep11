@@ -28,6 +28,7 @@ namespace Game_Interaction.Views
         private List<Rectangle> itemsToRemove = new List<Rectangle>();
         private bool gameIsOver = false;
         Random random = new Random();
+        public string winnaar = "";
 
         // Player1 Stats
         private int movementSpeedPlayer1 = 10;
@@ -225,15 +226,27 @@ namespace Game_Interaction.Views
             healthBar1.Value = hitpointsPlayer1;
             healthBar2.Value = hitpointsPlayer2;
 
-
+            
 
             // Checken of een speler dood is 
             if (hitpointsPlayer1 <= 0)
             {
+                if (spelerData1["naamSpeler2"] != null)
+                {
+                    #pragma warning disable CS8601 // Possible null reference assignment.
+                    winnaar = spelerData1["naamSpeler2"].ToString();
+                    #pragma warning restore CS8601 // Possible null reference assignment.
+                }
                 EndGame();
             }
             if (hitpointsPlayer2 <= 0)
             {
+                if (spelerData1["naamSpeler1"] != null)
+                {
+                    #pragma warning disable CS8601 // Possible null reference assignment.
+                    winnaar = spelerData1["naamSpeler1"].ToString();
+                    #pragma warning restore CS8601 // Possible null reference assignment.
+                }
                 EndGame();
             }
 
@@ -458,18 +471,16 @@ namespace Game_Interaction.Views
             if (!gameIsOver)
             {
                 gameIsOver = true;
-                NavigateToPostgamescherm();
+                Postgamescherm postGameScherm = new Postgamescherm(spelerData1, winnaar);
+                postGameScherm.Show();
+                this.Close();
+                
+
             }
         }
 
 
-        private void NavigateToPostgamescherm()
-        {
-            Postgamescherm postGameScherm = new Postgamescherm();
-            postGameScherm.Show();
-            this.Close();
-        }
-
+ 
 
         private void SpawnPowerUp(List<string> powerUps, Canvas gameCanvas)
         {

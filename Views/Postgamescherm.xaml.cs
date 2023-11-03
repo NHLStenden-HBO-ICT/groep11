@@ -20,7 +20,7 @@ namespace Game_Interaction.Views
     /// </summary>
     public partial class Postgamescherm : Window
     {
-        public Postgamescherm()
+        public Postgamescherm(Dictionary<string, object> spelerData, string winnaar)
         {
             InitializeComponent();
         }

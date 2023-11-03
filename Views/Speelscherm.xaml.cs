@@ -73,12 +73,14 @@ namespace Game_Interaction.Views
         private int shootCounter2 = 0;
 
         private Dictionary<string, object> spelerData1;
+       
 
         public Speelscherm(Dictionary<string, object> spelerData)
         {
             InitializeComponent();
             spelerData1 = spelerData;
             Player1Name.Content = spelerData["naamSpeler1"];
+            
 
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Tick += GameEngine;

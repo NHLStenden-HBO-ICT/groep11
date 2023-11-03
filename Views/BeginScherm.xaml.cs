@@ -43,12 +43,12 @@ namespace Game_Interaction.Views
         }
 
 
-      /* private void LeaderboardClick(object sender, RoutedEventArgs e)
+      private void LeaderboardClick(object sender, RoutedEventArgs e)
         {
-           Leaderboard Lbs = new Pregamescherm();
+           Leaderboard Lbs = new Leaderboard();
             Lbs.Show();
             this.Close();
-        } */
+        } 
 
         private void QuitClick(object sender, RoutedEventArgs e)
         {
